@@ -239,6 +239,11 @@ STATS_IMG_URL = getenv(
     "STATS_IMG_URL",
     "https://envs.sh/pC0.mp4",
 )
+
+COUPLE_IMG_URL = getenv(
+    "COUPLE_IMG_URL",
+    "https://envs.sh/Abq.mp4",
+)
     
 TELEGRAM_AUDIO_URL = getenv(
     "TELEGRAM_AUDIO_URL",
