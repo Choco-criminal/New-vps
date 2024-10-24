@@ -228,12 +228,12 @@ async def top_users_ten(client, CallbackQuery: CallbackQuery, _):
             else _["gstats_6"].format(limit, app.mention)
         )
         msg = temp + msg
-    med = InputMediaPhoto(media=config.GLOBAL_IMG_URL, caption=msg)
+    med = InputMediavideo(media=config.GLOBAL_IMG_URL, caption=msg)
     try:
         await CallbackQuery.edit_message_media(media=med, reply_markup=upl)
     except MessageIdInvalid:
-        await CallbackQuery.message.reply_photo(
-            photo=config.GLOBAL_IMG_URL, caption=msg, reply_markup=upl
+        await CallbackQuery.message.reply_video(
+             video=config.GLOBAL_IMG_URL, caption=msg, reply_markup=upl
         )
 
 
@@ -285,12 +285,12 @@ async def overall_stats(client, CallbackQuery, _):
 **sᴏɴɢ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪᴍɪᴛ:** {song} ᴍɪɴs
 **ʙᴏᴛ's sᴇʀᴠᴇʀ ᴘʟᴀʏʟɪsᴛ ʟɪᴍɪᴛ:** {playlist_limit}
 **ᴘʟᴀʏʟɪsᴛ ᴘʟᴀʏ ʟɪᴍɪᴛ:** {fetch_playlist}"""
-    med = InputMediaPhoto(media=config.STATS_IMG_URL, caption=text)
+    med = InputMediavideo(media=config.STATS_IMG_URL, caption=text)
     try:
         await CallbackQuery.edit_message_media(media=med, reply_markup=upl)
     except MessageIdInvalid:
-        await CallbackQuery.message.reply_photo(
-            photo=config.STATS_IMG_URL, caption=text, reply_markup=upl
+        await CallbackQuery.message.reply_video(
+            video=config.STATS_IMG_URL, caption=text, reply_markup=upl
         )
 
 
@@ -371,7 +371,7 @@ async def overall_stats(client, CallbackQuery, _):
 **ᴛᴏᴛᴀʟ ᴅʙ ᴋᴇʏs:** {objects}
 **ᴛᴏᴛᴀʟ ʙᴏᴛ ǫᴜᴇʀɪᴇs:** `{total_queries} `
     """
-    med = InputMediaPhoto(media=config.STATS_IMG_URL, caption=text)
+    med = InputMediavideo(media=config.STATS_IMG_URL, caption=text)
     try:
         await CallbackQuery.edit_message_media(media=med, reply_markup=upl)
     except MessageIdInvalid:
