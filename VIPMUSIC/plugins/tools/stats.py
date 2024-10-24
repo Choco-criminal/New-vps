@@ -228,7 +228,7 @@ async def top_users_ten(client, CallbackQuery: CallbackQuery, _):
             else _["gstats_6"].format(limit, app.mention)
         )
         msg = temp + msg
-    med = InputMediaphoto(media=config.GLOBAL_IMG_URL, caption=msg)
+    med = InputMediaVideo(media=config.GLOBAL_IMG_URL, caption=msg)
     try:
         await CallbackQuery.edit_message_media(media=med, reply_markup=upl)
     except MessageIdInvalid:
@@ -285,7 +285,7 @@ async def overall_stats(client, CallbackQuery, _):
 **sᴏɴɢ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪᴍɪᴛ:** {song} ᴍɪɴs
 **ʙᴏᴛ's sᴇʀᴠᴇʀ ᴘʟᴀʏʟɪsᴛ ʟɪᴍɪᴛ:** {playlist_limit}
 **ᴘʟᴀʏʟɪsᴛ ᴘʟᴀʏ ʟɪᴍɪᴛ:** {fetch_playlist}"""
-    med = InputMediaphoto(media=config.STATS_IMG_URL, caption=text)
+    med = InputMediaVideo(media=config.STATS_IMG_URL, caption=text)
     try:
         await CallbackQuery.edit_message_media(media=med, reply_markup=upl)
     except MessageIdInvalid:
@@ -371,7 +371,7 @@ async def overall_stats(client, CallbackQuery, _):
 **ᴛᴏᴛᴀʟ ᴅʙ ᴋᴇʏs:** {objects}
 **ᴛᴏᴛᴀʟ ʙᴏᴛ ǫᴜᴇʀɪᴇs:** `{total_queries} `
     """
-    med = InputMediaphoto(media=config.STATS_IMG_URL, caption=text)
+    med = InputMediaVideo(media=config.STATS_IMG_URL, caption=text)
     try:
         await CallbackQuery.edit_message_media(media=med, reply_markup=upl)
     except MessageIdInvalid:
@@ -392,7 +392,7 @@ async def back_buttons(client, CallbackQuery, _):
     command = CallbackQuery.matches[0].group(1)
     if command == "TOPMARKUPGET":
         upl = top_ten_stats_markup(_)
-        med = InputMediaphoto(
+        med = InputMediaVideo(
             media=config.GLOBAL_IMG_URL,
             caption=_["gstats_9"],
         )
@@ -409,7 +409,7 @@ async def back_buttons(client, CallbackQuery, _):
             _,
             True if CallbackQuery.from_user.id in SUDOERS else False,
         )
-        med = InputMediaphoto(
+        med = InputMediaVideo(
             media=config.GLOBAL_IMG_URL,
             caption=_["gstats_10"].format(app.mention),
         )
@@ -426,7 +426,7 @@ async def back_buttons(client, CallbackQuery, _):
             _,
             True if CallbackQuery.from_user.id in SUDOERS else False,
         )
-        med =InputMediaphoto(
+        med =InputMediaVideo(
             media=config.STATS_IMG_URL,
             caption=_["gstats_11"].format(app.mention),
         )
