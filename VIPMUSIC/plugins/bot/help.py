@@ -338,10 +338,7 @@ async def music_helper_cb(client, CallbackQuery, _):
 async def about_callback(client: Client, callback_query: CallbackQuery):
     buttons = [
         [
-            InlineKeyboardButton(text="ᴏᴡɴᴇʀ", user_id=config.OWNER_ID[0]),
-            InlineKeyboardButton(
-                text="ᴄᴏɴᴛʀɪʙᴜᴛᴏʀs", url=f"https://t.me/Choco_for_u/17"
-            ),
+            InlineKeyboardButton(text="ᴏᴡɴᴇʀ", user_id=config.OWNER_ID[0])
         ],
         [
             InlineKeyboardButton(text="🔙 Back", callback_data="about")
