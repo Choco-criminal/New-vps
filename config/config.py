@@ -70,7 +70,7 @@ SONG_DOWNLOAD_DURATION = int(
 
 
 # You'll need a Private Group ID for this.
-LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", "-1002342282754"))
+LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", "-1002400130574"))
 
 
 # Your User ID.
@@ -82,7 +82,7 @@ OWNER_ID = list(
 # make your bots privacy from telegra.ph and put your url here
 
 PRIVACY_LINK = getenv(
-    "PRIVACY_LINK", "https://telegra.ph/Privacy-Policy-for-VIPMUSIC-08-30"
+    "PRIVACY_LINK", "https://telegra.ph/%F0%9D%90%82%F0%9D%90%80%F0%9D%90%94%F0%9D%90%93%F0%9D%90%88%F0%9D%90%8E%F0%9D%90%8D-10-19"
 )
 
 
