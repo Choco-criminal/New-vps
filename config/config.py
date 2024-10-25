@@ -96,7 +96,7 @@ HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
 # For customized or modified Repository
 UPSTREAM_REPO = getenv(
     "UPSTREAM_REPO",
-    "https://github.com/MOON-CODES/SUNLIGHT",
+    "https://envs.sh/pi0.jpg",
 )
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "master")
 
