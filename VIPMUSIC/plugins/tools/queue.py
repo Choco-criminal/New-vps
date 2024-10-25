@@ -93,16 +93,16 @@ async def ping_com(client, message: Message, _):
         else:
             IMAGE = get_image(videoid)
     send = (
-        "**⌛️ᴅᴜʀᴀᴛɪᴏɴ:** ᴜɴᴋɴᴏᴡɴ ᴅᴜʀᴀᴛɪᴏɴ sᴛʀᴇᴀᴍ \n\nᴄʟɪᴄᴋ ᴏɴ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ᴛᴏ ɢᴇᴛ ᴡʜᴏʟᴇ ǫᴜᴇᴜᴇᴅ ʟɪsᴛ."
+        "**⌛ᴅᴜʀᴀᴛɪᴏɴ:** ᴜɴᴋɴᴏᴡɴ ᴅᴜʀᴀᴛɪᴏɴ sᴛʀᴇᴀᴍ \n\nᴄʟɪᴄᴋ ᴏɴ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ᴛᴏ ɢᴇᴛ ᴡʜᴏʟᴇ ǫᴜᴇᴜᴇᴅ ʟɪsᴛ."
         if DUR == "Unknown"
         else "\nᴄʟɪᴄᴋ ᴏɴ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ᴛᴏ ɢᴇᴛ ᴡʜᴏʟʀ ǫᴜᴇᴜᴇᴅ ʟɪsᴛ."
     )
     cap = f"""**{app.mention} ᴘʟᴀʏᴇʀ**
 
-🎥**ᴘʟᴀʏɪɴɢ:** {title}
+**ᴘʟᴀʏɪɴɢ:** {title}
 
-🔗**sᴛʀᴇᴀᴍ ᴛʏᴘᴇ:** {typo}
-🙍‍♂️**ᴘʟᴀʏᴇᴅ ʙʏ:** {user}
+**sᴛʀᴇᴀᴍ ᴛʏᴘᴇ:** {typo}
+🙍‍♂**ᴘʟᴀʏᴇᴅ ʙʏ:** {user}
 {send}"""
     upl = (
         queue_markup(_, DUR, "c" if cplay else "g", videoid)
