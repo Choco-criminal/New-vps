@@ -121,10 +121,10 @@ class Userbot(Client):
         if config.STRING3:
             await self.three.start()
             try:
-                await self.three.join_chat("sunlight_world")
-                await self.three.join_chat("world_friend_chatting_zone")
-                await self.three.join_chat("untold_coder")
-                await self.three.join_chat("ABOUT_CODER")
+                await self.three.join_chat("ANIME_CHAT_ANG")
+                await self.three.join_chat("ANIME_CHAT_ANG")
+                await self.three.join_chat("ANIME_CHAT_ANG")
+                await self.three.join_chat("ANIME_CHAT_ANG")
             except:
                 pass
             assistants.append(3)
@@ -149,10 +149,10 @@ class Userbot(Client):
         if config.STRING4:
             await self.four.start()
             try:
-                await self.four.join_chat("sunlight_world")
-                await self.four.join_chat("world_friend_chatting_zone")
-                await self.four.join_chat("untold_coder")
-                await self.four.join_chat("ABOUT_CODER")
+                await self.four.join_chat("ANIME_CHAT_ANG")
+                await self.four.join_chat("ANIME_CHAT_ANG")
+                await self.four.join_chat("ANIME_CHAT_ANG")
+                await self.four.join_chat("ANIME_CHAT_ANG")
             except:
                 pass
             assistants.append(4)
@@ -177,10 +177,10 @@ class Userbot(Client):
         if config.STRING5:
             await self.five.start()
             try:
-                await self.five.join_chat("sunlight_world")
-                await self.five.join_chat("world_friend_chatting_zone")
-                await self.five.join_chat("untold_coder")
-                await self.five.join_chat("ABOUT_CODER")
+                await self.five.join_chat("ANIME_CHAT_ANG")
+                await self.five.join_chat("ANIME_CHAT_ANG")
+                await self.five.join_chat("ANIME_CHAT_ANG")
+                await self.five.join_chat("ANIME_CHAT_ANG")
             except:
                 pass
             assistants.append(5)
