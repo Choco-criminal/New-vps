@@ -25,7 +25,7 @@ def command(commands: Union[str, List[str]]):
 async def brah(_, msg):
     chat_id = msg.chat.id
     try:
-        await msg.reply("**😍ᴠɪᴅᴇᴏ ᴄʜᴀᴛ sᴛᴀʀᴛᴇᴅ🥳**")
+        await msg.reply("**^_^ ᴠɪᴅᴇᴏ ᴄʜᴀᴛ sᴛᴀʀᴛᴇᴅ 🤭**")
         await VIP.st_stream(chat_id)
         await set_loop(chat_id, 0)
     except Exception as e:
