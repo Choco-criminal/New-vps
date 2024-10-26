@@ -235,8 +235,8 @@ GLOBAL_IMG_URL = getenv(
     "https://envs.sh/pFS.mp4",
 )
 
-STATS_IMG_URL = getenv(
-    "STATS_IMG_URL",
+STATSS_IMG_URL = getenv(
+    "STATSS_IMG_URL",
     "https://envs.sh/pC0.mp4",
 )
 
@@ -346,8 +346,8 @@ if GLOBAL_IMG_URL:
             )
 
 
-if STATS_IMG_URL:
-    if STATS_IMG_URL != "https://envs.sh/pC0.mp4":
+if STATSS_IMG_URL:
+    if STATSS_IMG_URL != "https://envs.sh/pC0.mp4":
         if not re.match("(?:http|https)://", STATS_IMG_URL):
             print(
                 "[ERROR] - Your STATS_IMG_URL url is wrong. Please ensure that it starts with https://"
