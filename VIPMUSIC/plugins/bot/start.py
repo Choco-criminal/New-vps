@@ -262,19 +262,7 @@ async def start_comm(client, message: Message, _):
             await vips.edit_text("**❥𝑆𝑡𝑎𝑟𝑡𝑖𝑛𝑔...◌**")
             await asyncio.sleep(0.1)
             await vips.edit_text("**❥𝑆𝑡𝑎𝑟𝑡𝑖𝑛𝑔....◌**")
-            if message.chat.photo:
-
-                userss_photo = await app.download_media(
-                    message.chat.photo.big_file_id,
-                )
-            else:
-                userss_photo = "assets/nodp.png"
-            if userss_photo:
-                chat_photo = userss_photo
-            chat_photo = userss_photo if userss_photo else START_IMG_URL
-
-        except AttributeError:
-            chat_photo = "assets/nodp.png"
+            
         await vips.delete()
         if config.START_IMG_URL:
                 return await message.reply_video(
@@ -282,14 +270,11 @@ async def start_comm(client, message: Message, _):
                     caption=_["start_2"].format(message.from_user.mention, app.mention),
                     reply_markup=InlineKeyboardMarkup(out),
         )
-        if await is_on_off(config.LOG):
-            sender_id = message.from_user.id
-            sender_name = message.from_user.first_name
-            return await app.send_message(
-                config.LOG_GROUP_ID,
-                f"{message.from_user.mention} ʜᴀs sᴛᴀʀᴛᴇᴅ ʙᴏᴛ. \n\n**ᴜsᴇʀ ɪᴅ :** {sender_id}\n**ᴜsᴇʀ ɴᴀᴍᴇ:** {sender_name}",
-            )
-
+        if await is_on_off(2):
+                return await app.send_message(
+                    chat_id=config.LOGGER_ID,
+                    text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>ᴛʀᴀᴄᴋ ɪɴғᴏʀᴍᴀᴛɪᴏɴ</b>.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
+                )
 
 @app.on_message(filters.command(["start"]) & filters.group & ~BANNED_USERS)
 @LanguageStart
