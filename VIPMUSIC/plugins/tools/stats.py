@@ -1,440 +1,440 @@
 #
-# Copyright (C) 2024 by THE-VIP-BOY-OP@Github, < https://github.com/THE-VIP-BOY-OP >.
+# 𝗖𝗼𝗽𝘆𝗿𝗶𝗴𝗵𝘁 (𝗖) 𝟮𝟬𝟮𝟰 𝗯𝘆 𝗧𝗛𝗘-𝗩𝗜𝗣-𝗕𝗢𝗬-𝗢𝗣@𝗚𝗶𝘁𝗵𝘂𝗯, < 𝗵𝘁𝘁𝗽𝘀://𝗴𝗶𝘁𝗵𝘂𝗯.𝗰𝗼𝗺/𝗧𝗛𝗘-𝗩𝗜𝗣-𝗕𝗢𝗬-𝗢𝗣 >.
 #
-# This file is part of < https://github.com/THE-VIP-BOY-OP/VIP-MUSIC > project,
-# and is released under the MIT License.
-# Please see < https://github.com/THE-VIP-BOY-OP/VIP-MUSIC/blob/master/LICENSE >
+# 𝗧𝗵𝗶𝘀 𝗳𝗶𝗹𝗲 𝗶𝘀 𝗽𝗮𝗿𝘁 𝗼𝗳 < 𝗵𝘁𝘁𝗽𝘀://𝗴𝗶𝘁𝗵𝘂𝗯.𝗰𝗼𝗺/𝗧𝗛𝗘-𝗩𝗜𝗣-𝗕𝗢𝗬-𝗢𝗣/𝗩𝗜𝗣-𝗠𝗨𝗦𝗜𝗖 > 𝗽𝗿𝗼𝗷𝗲𝗰𝘁,
+# 𝗮𝗻𝗱 𝗶𝘀 𝗿𝗲𝗹𝗲𝗮𝘀𝗲𝗱 𝘂𝗻𝗱𝗲𝗿 𝘁𝗵𝗲 𝗠𝗜𝗧 𝗟𝗶𝗰𝗲𝗻𝘀𝗲.
+# 𝗣𝗹𝗲𝗮𝘀𝗲 𝘀𝗲𝗲 < 𝗵𝘁𝘁𝗽𝘀://𝗴𝗶𝘁𝗵𝘂𝗯.𝗰𝗼𝗺/𝗧𝗛𝗘-𝗩𝗜𝗣-𝗕𝗢𝗬-𝗢𝗣/𝗩𝗜𝗣-𝗠𝗨𝗦𝗜𝗖/𝗯𝗹𝗼𝗯/𝗺𝗮𝘀𝘁𝗲𝗿/𝗟𝗜𝗖𝗘𝗡𝗦𝗘 >
 #
-# All rights reserved.
+# 𝗔𝗹𝗹 𝗿𝗶𝗴𝗵𝘁𝘀 𝗿𝗲𝘀𝗲𝗿𝘃𝗲𝗱.
 #
-import asyncio
-import platform
-from sys import version as pyver
+𝗶𝗺𝗽𝗼𝗿𝘁 𝗮𝘀𝘆𝗻𝗰𝗶𝗼
+𝗶𝗺𝗽𝗼𝗿𝘁 𝗽𝗹𝗮𝘁𝗳𝗼𝗿𝗺
+𝗳𝗿𝗼𝗺 𝘀𝘆𝘀 𝗶𝗺𝗽𝗼𝗿𝘁 𝘃𝗲𝗿𝘀𝗶𝗼𝗻 𝗮𝘀 𝗽𝘆𝘃𝗲𝗿
 
-import psutil
-from ntgcalls import __version__ as ngtgver
-from pyrogram import __version__ as pyrover
-from pyrogram import filters
-from pyrogram.errors import FloodWait, MessageIdInvalid
-from pyrogram.types import CallbackQuery, InputMediaPhoto, Message
-from pytgcalls.__version__ import __version__ as pytgver
+𝗶𝗺𝗽𝗼𝗿𝘁 𝗽𝘀𝘂𝘁𝗶𝗹
+𝗳𝗿𝗼𝗺 𝗻𝘁𝗴𝗰𝗮𝗹𝗹𝘀 𝗶𝗺𝗽𝗼𝗿𝘁 __𝘃𝗲𝗿𝘀𝗶𝗼𝗻__ 𝗮𝘀 𝗻𝗴𝘁𝗴𝘃𝗲𝗿
+𝗳𝗿𝗼𝗺 𝗽𝘆𝗿𝗼𝗴𝗿𝗮𝗺 𝗶𝗺𝗽𝗼𝗿𝘁 __𝘃𝗲𝗿𝘀𝗶𝗼𝗻__ 𝗮𝘀 𝗽𝘆𝗿𝗼𝘃𝗲𝗿
+𝗳𝗿𝗼𝗺 𝗽𝘆𝗿𝗼𝗴𝗿𝗮𝗺 𝗶𝗺𝗽𝗼𝗿𝘁 𝗳𝗶𝗹𝘁𝗲𝗿𝘀
+𝗳𝗿𝗼𝗺 𝗽𝘆𝗿𝗼𝗴𝗿𝗮𝗺.𝗲𝗿𝗿𝗼𝗿𝘀 𝗶𝗺𝗽𝗼𝗿𝘁 𝗙𝗹𝗼𝗼𝗱𝗪𝗮𝗶𝘁, 𝗠𝗲𝘀𝘀𝗮𝗴𝗲𝗜𝗱𝗜𝗻𝘃𝗮𝗹𝗶𝗱
+𝗳𝗿𝗼𝗺 𝗽𝘆𝗿𝗼𝗴𝗿𝗮𝗺.𝘁𝘆𝗽𝗲𝘀 𝗶𝗺𝗽𝗼𝗿𝘁 𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆, 𝗜𝗻𝗽𝘂𝘁𝗠𝗲𝗱𝗶𝗮𝗣𝗵𝗼𝘁𝗼, 𝗠𝗲𝘀𝘀𝗮𝗴𝗲
+𝗳𝗿𝗼𝗺 𝗽𝘆𝘁𝗴𝗰𝗮𝗹𝗹𝘀.__𝘃𝗲𝗿𝘀𝗶𝗼𝗻__ 𝗶𝗺𝗽𝗼𝗿𝘁 __𝘃𝗲𝗿𝘀𝗶𝗼𝗻__ 𝗮𝘀 𝗽𝘆𝘁𝗴𝘃𝗲𝗿
 
-import config
-from config import BANNED_USERS
-from strings import get_command
-from VIPMUSIC import YouTube, app
-from VIPMUSIC.core.userbot import assistants
-from VIPMUSIC.misc import SUDOERS, pymongodb
-from VIPMUSIC.plugins import ALL_MODULES
-from VIPMUSIC.utils.database import (
-    get_global_tops,
-    get_particulars,
-    get_queries,
-    get_served_chats,
-    get_served_users,
-    get_sudoers,
-    get_top_chats,
-    get_topp_users,
+𝗶𝗺𝗽𝗼𝗿𝘁 𝗰𝗼𝗻𝗳𝗶𝗴
+𝗳𝗿𝗼𝗺 𝗰𝗼𝗻𝗳𝗶𝗴 𝗶𝗺𝗽𝗼𝗿𝘁 𝗕𝗔𝗡𝗡𝗘𝗗_𝗨𝗦𝗘𝗥𝗦
+𝗳𝗿𝗼𝗺 𝘀𝘁𝗿𝗶𝗻𝗴𝘀 𝗶𝗺𝗽𝗼𝗿𝘁 𝗴𝗲𝘁_𝗰𝗼𝗺𝗺𝗮𝗻𝗱
+𝗳𝗿𝗼𝗺 𝗩𝗜𝗣𝗠𝗨𝗦𝗜𝗖 𝗶𝗺𝗽𝗼𝗿𝘁 𝗬𝗼𝘂𝗧𝘂𝗯𝗲, 𝗮𝗽𝗽
+𝗳𝗿𝗼𝗺 𝗩𝗜𝗣𝗠𝗨𝗦𝗜𝗖.𝗰𝗼𝗿𝗲.𝘂𝘀𝗲𝗿𝗯𝗼𝘁 𝗶𝗺𝗽𝗼𝗿𝘁 𝗮𝘀𝘀𝗶𝘀𝘁𝗮𝗻𝘁𝘀
+𝗳𝗿𝗼𝗺 𝗩𝗜𝗣𝗠𝗨𝗦𝗜𝗖.𝗺𝗶𝘀𝗰 𝗶𝗺𝗽𝗼𝗿𝘁 𝗦𝗨𝗗𝗢𝗘𝗥𝗦, 𝗽𝘆𝗺𝗼𝗻𝗴𝗼𝗱𝗯
+𝗳𝗿𝗼𝗺 𝗩𝗜𝗣𝗠𝗨𝗦𝗜𝗖.𝗽𝗹𝘂𝗴𝗶𝗻𝘀 𝗶𝗺𝗽𝗼𝗿𝘁 𝗔𝗟𝗟_𝗠𝗢𝗗𝗨𝗟𝗘𝗦
+𝗳𝗿𝗼𝗺 𝗩𝗜𝗣𝗠𝗨𝗦𝗜𝗖.𝘂𝘁𝗶𝗹𝘀.𝗱𝗮𝘁𝗮𝗯𝗮𝘀𝗲 𝗶𝗺𝗽𝗼𝗿𝘁 (
+    𝗴𝗲𝘁_𝗴𝗹𝗼𝗯𝗮𝗹_𝘁𝗼𝗽𝘀,
+    𝗴𝗲𝘁_𝗽𝗮𝗿𝘁𝗶𝗰𝘂𝗹𝗮𝗿𝘀,
+    𝗴𝗲𝘁_𝗾𝘂𝗲𝗿𝗶𝗲𝘀,
+    𝗴𝗲𝘁_𝘀𝗲𝗿𝘃𝗲𝗱_𝗰𝗵𝗮𝘁𝘀,
+    𝗴𝗲𝘁_𝘀𝗲𝗿𝘃𝗲𝗱_𝘂𝘀𝗲𝗿𝘀,
+    𝗴𝗲𝘁_𝘀𝘂𝗱𝗼𝗲𝗿𝘀,
+    𝗴𝗲𝘁_𝘁𝗼𝗽_𝗰𝗵𝗮𝘁𝘀,
+    𝗴𝗲𝘁_𝘁𝗼𝗽𝗽_𝘂𝘀𝗲𝗿𝘀,
 )
-from VIPMUSIC.utils.decorators.language import language, languageCB
-from VIPMUSIC.utils.inline.stats import (
-    back_stats_buttons,
-    back_stats_markup,
-    get_stats_markup,
-    overallback_stats_markup,
-    stats_buttons,
-    top_ten_stats_markup,
+𝗳𝗿𝗼𝗺 𝗩𝗜𝗣𝗠𝗨𝗦𝗜𝗖.𝘂𝘁𝗶𝗹𝘀.𝗱𝗲𝗰𝗼𝗿𝗮𝘁𝗼𝗿𝘀.𝗹𝗮𝗻𝗴𝘂𝗮𝗴𝗲 𝗶𝗺𝗽𝗼𝗿𝘁 𝗹𝗮𝗻𝗴𝘂𝗮𝗴𝗲, 𝗹𝗮𝗻𝗴𝘂𝗮𝗴𝗲𝗖𝗕
+𝗳𝗿𝗼𝗺 𝗩𝗜𝗣𝗠𝗨𝗦𝗜𝗖.𝘂𝘁𝗶𝗹𝘀.𝗶𝗻𝗹𝗶𝗻𝗲.𝘀𝘁𝗮𝘁𝘀 𝗶𝗺𝗽𝗼𝗿𝘁 (
+    𝗯𝗮𝗰𝗸_𝘀𝘁𝗮𝘁𝘀_𝗯𝘂𝘁𝘁𝗼𝗻𝘀,
+    𝗯𝗮𝗰𝗸_𝘀𝘁𝗮𝘁𝘀_𝗺𝗮𝗿𝗸𝘂𝗽,
+    𝗴𝗲𝘁_𝘀𝘁𝗮𝘁𝘀_𝗺𝗮𝗿𝗸𝘂𝗽,
+    𝗼𝘃𝗲𝗿𝗮𝗹𝗹𝗯𝗮𝗰𝗸_𝘀𝘁𝗮𝘁𝘀_𝗺𝗮𝗿𝗸𝘂𝗽,
+    𝘀𝘁𝗮𝘁𝘀_𝗯𝘂𝘁𝘁𝗼𝗻𝘀,
+    𝘁𝗼𝗽_𝘁𝗲𝗻_𝘀𝘁𝗮𝘁𝘀_𝗺𝗮𝗿𝗸𝘂𝗽,
 )
 
-loop = asyncio.get_running_loop()
+𝗹𝗼𝗼𝗽 = 𝗮𝘀𝘆𝗻𝗰𝗶𝗼.𝗴𝗲𝘁_𝗿𝘂𝗻𝗻𝗶𝗻𝗴_𝗹𝗼𝗼𝗽()
 
-# Commands
-GSTATS_COMMAND = get_command("GSTATS_COMMAND")
-STATS_COMMAND = get_command("STATS_COMMAND")
+# 𝗖𝗼𝗺𝗺𝗮𝗻𝗱𝘀
+𝗚𝗦𝗧𝗔𝗧𝗦_𝗖𝗢𝗠𝗠𝗔𝗡𝗗 = 𝗴𝗲𝘁_𝗰𝗼𝗺𝗺𝗮𝗻𝗱("𝗚𝗦𝗧𝗔𝗧𝗦_𝗖𝗢𝗠𝗠𝗔𝗡𝗗")
+𝗦𝗧𝗔𝗧𝗦_𝗖𝗢𝗠𝗠𝗔𝗡𝗗 = 𝗴𝗲𝘁_𝗰𝗼𝗺𝗺𝗮𝗻𝗱("𝗦𝗧𝗔𝗧𝗦_𝗖𝗢𝗠𝗠𝗔𝗡𝗗")
 
 
-@app.on_message(filters.command(STATS_COMMAND) & ~BANNED_USERS)
-@language
-async def stats_global(client, message: Message, _):
-    upl = stats_buttons(_, True if message.from_user.id in SUDOERS else False)
-    await message.reply_video(
-        video=config.STATSS_IMG_URL,
-        caption=_["gstats_11"].format(app.mention),
-        reply_markup=upl,
+@𝗮𝗽𝗽.𝗼𝗻_𝗺𝗲𝘀𝘀𝗮𝗴𝗲(𝗳𝗶𝗹𝘁𝗲𝗿𝘀.𝗰𝗼𝗺𝗺𝗮𝗻𝗱(𝗦𝗧𝗔𝗧𝗦_𝗖𝗢𝗠𝗠𝗔𝗡𝗗) & ~𝗕𝗔𝗡𝗡𝗘𝗗_𝗨𝗦𝗘𝗥𝗦)
+@𝗹𝗮𝗻𝗴𝘂𝗮𝗴𝗲
+𝗮𝘀𝘆𝗻𝗰 𝗱𝗲𝗳 𝘀𝘁𝗮𝘁𝘀_𝗴𝗹𝗼𝗯𝗮𝗹(𝗰𝗹𝗶𝗲𝗻𝘁, 𝗺𝗲𝘀𝘀𝗮𝗴𝗲: 𝗠𝗲𝘀𝘀𝗮𝗴𝗲, _):
+    𝘂𝗽𝗹 = 𝘀𝘁𝗮𝘁𝘀_𝗯𝘂𝘁𝘁𝗼𝗻𝘀(_, 𝗧𝗿𝘂𝗲 𝗶𝗳 𝗺𝗲𝘀𝘀𝗮𝗴𝗲.𝗳𝗿𝗼𝗺_𝘂𝘀𝗲𝗿.𝗶𝗱 𝗶𝗻 𝗦𝗨𝗗𝗢𝗘𝗥𝗦 𝗲𝗹𝘀𝗲 𝗙𝗮𝗹𝘀𝗲)
+    𝗮𝘄𝗮𝗶𝘁 𝗺𝗲𝘀𝘀𝗮𝗴𝗲.𝗿𝗲𝗽𝗹𝘆_𝗽𝗵𝗼𝘁𝗼(
+        𝗽𝗵𝗼𝘁𝗼=𝗰𝗼𝗻𝗳𝗶𝗴.𝗦𝗧𝗔𝗧𝗦_𝗜𝗠𝗚_𝗨𝗥𝗟,
+        𝗰𝗮𝗽𝘁𝗶𝗼𝗻=_["𝗴𝘀𝘁𝗮𝘁𝘀_𝟭𝟭"].𝗳𝗼𝗿𝗺𝗮𝘁(𝗮𝗽𝗽.𝗺𝗲𝗻𝘁𝗶𝗼𝗻),
+        𝗿𝗲𝗽𝗹𝘆_𝗺𝗮𝗿𝗸𝘂𝗽=𝘂𝗽𝗹,
     )
 
 
-@app.on_message(filters.command(GSTATS_COMMAND) & ~BANNED_USERS)
-@language
-async def gstats_global(client, message: Message, _):
-    await message.react("🕊️")
-    mystic = await message.reply_text(_["gstats_1"])
-    stats = await get_global_tops()
-    if not stats:
-        await asyncio.sleep(1)
-        return await mystic.edit(_["gstats_2"])
+@𝗮𝗽𝗽.𝗼𝗻_𝗺𝗲𝘀𝘀𝗮𝗴𝗲(𝗳𝗶𝗹𝘁𝗲𝗿𝘀.𝗰𝗼𝗺𝗺𝗮𝗻𝗱(𝗚𝗦𝗧𝗔𝗧𝗦_𝗖𝗢𝗠𝗠𝗔𝗡𝗗) & ~𝗕𝗔𝗡𝗡𝗘𝗗_𝗨𝗦𝗘𝗥𝗦)
+@𝗹𝗮𝗻𝗴𝘂𝗮𝗴𝗲
+𝗮𝘀𝘆𝗻𝗰 𝗱𝗲𝗳 𝗴𝘀𝘁𝗮𝘁𝘀_𝗴𝗹𝗼𝗯𝗮𝗹(𝗰𝗹𝗶𝗲𝗻𝘁, 𝗺𝗲𝘀𝘀𝗮𝗴𝗲: 𝗠𝗲𝘀𝘀𝗮𝗴𝗲, _):
+    𝗮𝘄𝗮𝗶𝘁 𝗺𝗲𝘀𝘀𝗮𝗴𝗲.𝗿𝗲𝗮𝗰𝘁("🕊️")
+    𝗺𝘆𝘀𝘁𝗶𝗰 = 𝗮𝘄𝗮𝗶𝘁 𝗺𝗲𝘀𝘀𝗮𝗴𝗲.𝗿𝗲𝗽𝗹𝘆_𝘁𝗲𝘅𝘁(_["𝗴𝘀𝘁𝗮𝘁𝘀_𝟭"])
+    𝘀𝘁𝗮𝘁𝘀 = 𝗮𝘄𝗮𝗶𝘁 𝗴𝗲𝘁_𝗴𝗹𝗼𝗯𝗮𝗹_𝘁𝗼𝗽𝘀()
+    𝗶𝗳 𝗻𝗼𝘁 𝘀𝘁𝗮𝘁𝘀:
+        𝗮𝘄𝗮𝗶𝘁 𝗮𝘀𝘆𝗻𝗰𝗶𝗼.𝘀𝗹𝗲𝗲𝗽(𝟭)
+        𝗿𝗲𝘁𝘂𝗿𝗻 𝗮𝘄𝗮𝗶𝘁 𝗺𝘆𝘀𝘁𝗶𝗰.𝗲𝗱𝗶𝘁(_["𝗴𝘀𝘁𝗮𝘁𝘀_𝟮"])
 
-    def get_stats():
-        results = {}
-        for i in stats:
-            top_list = stats[i]["spot"]
-            results[str(i)] = top_list
-            list_arranged = dict(
-                sorted(
-                    results.items(),
-                    key=lambda item: item[1],
-                    reverse=True,
+    𝗱𝗲𝗳 𝗴𝗲𝘁_𝘀𝘁𝗮𝘁𝘀():
+        𝗿𝗲𝘀𝘂𝗹𝘁𝘀 = {}
+        𝗳𝗼𝗿 𝗶 𝗶𝗻 𝘀𝘁𝗮𝘁𝘀:
+            𝘁𝗼𝗽_𝗹𝗶𝘀𝘁 = 𝘀𝘁𝗮𝘁𝘀[𝗶]["𝘀𝗽𝗼𝘁"]
+            𝗿𝗲𝘀𝘂𝗹𝘁𝘀[𝘀𝘁𝗿(𝗶)] = 𝘁𝗼𝗽_𝗹𝗶𝘀𝘁
+            𝗹𝗶𝘀𝘁_𝗮𝗿𝗿𝗮𝗻𝗴𝗲𝗱 = 𝗱𝗶𝗰𝘁(
+                𝘀𝗼𝗿𝘁𝗲𝗱(
+                    𝗿𝗲𝘀𝘂𝗹𝘁𝘀.𝗶𝘁𝗲𝗺𝘀(),
+                    𝗸𝗲𝘆=𝗹𝗮𝗺𝗯𝗱𝗮 𝗶𝘁𝗲𝗺: 𝗶𝘁𝗲𝗺[𝟭],
+                    𝗿𝗲𝘃𝗲𝗿𝘀𝗲=𝗧𝗿𝘂𝗲,
                 )
             )
-        if not results:
-            return mystic.edit(_["gstats_2"])
-        videoid = None
-        co = None
-        for vidid, count in list_arranged.items():
-            if vidid == "telegram":
-                continue
-            else:
-                videoid = vidid
-                co = count
-            break
-        return videoid, co
+        𝗶𝗳 𝗻𝗼𝘁 𝗿𝗲𝘀𝘂𝗹𝘁𝘀:
+            𝗿𝗲𝘁𝘂𝗿𝗻 𝗺𝘆𝘀𝘁𝗶𝗰.𝗲𝗱𝗶𝘁(_["𝗴𝘀𝘁𝗮𝘁𝘀_𝟮"])
+        𝘃𝗶𝗱𝗲𝗼𝗶𝗱 = 𝗡𝗼𝗻𝗲
+        𝗰𝗼 = 𝗡𝗼𝗻𝗲
+        𝗳𝗼𝗿 𝘃𝗶𝗱𝗶𝗱, 𝗰𝗼𝘂𝗻𝘁 𝗶𝗻 𝗹𝗶𝘀𝘁_𝗮𝗿𝗿𝗮𝗻𝗴𝗲𝗱.𝗶𝘁𝗲𝗺𝘀():
+            𝗶𝗳 𝘃𝗶𝗱𝗶𝗱 == "𝘁𝗲𝗹𝗲𝗴𝗿𝗮𝗺":
+                𝗰𝗼𝗻𝘁𝗶𝗻𝘂𝗲
+            𝗲𝗹𝘀𝗲:
+                𝘃𝗶𝗱𝗲𝗼𝗶𝗱 = 𝘃𝗶𝗱𝗶𝗱
+                𝗰𝗼 = 𝗰𝗼𝘂𝗻𝘁
+            𝗯𝗿𝗲𝗮𝗸
+        𝗿𝗲𝘁𝘂𝗿𝗻 𝘃𝗶𝗱𝗲𝗼𝗶𝗱, 𝗰𝗼
 
-    try:
-        videoid, co = await loop.run_in_executor(None, get_stats)
-    except Exception as e:
-        print(e)
-        return
+    𝘁𝗿𝘆:
+        𝘃𝗶𝗱𝗲𝗼𝗶𝗱, 𝗰𝗼 = 𝗮𝘄𝗮𝗶𝘁 𝗹𝗼𝗼𝗽.𝗿𝘂𝗻_𝗶𝗻_𝗲𝘅𝗲𝗰𝘂𝘁𝗼𝗿(𝗡𝗼𝗻𝗲, 𝗴𝗲𝘁_𝘀𝘁𝗮𝘁𝘀)
+    𝗲𝘅𝗰𝗲𝗽𝘁 𝗘𝘅𝗰𝗲𝗽𝘁𝗶𝗼𝗻 𝗮𝘀 𝗲:
+        𝗽𝗿𝗶𝗻𝘁(𝗲)
+        𝗿𝗲𝘁𝘂𝗿𝗻
     (
-        title,
-        duration_min,
-        duration_sec,
-        thumbnail,
-        vidid,
-    ) = await YouTube.details(videoid, True)
-    title = title.title()
-    final = f"ᴛᴏᴘ ᴍᴏsᴛ ᴘʟᴀʏᴇᴅ ᴛʀᴀᴄᴋ's ᴏɴ ʙᴏᴛ {app.mention}\n\n**ᴛɪᴛʟᴇ:** {title}\n\nᴘʟᴀʏᴇᴅ** {co} **ᴛɪᴍᴇs"
-    upl = get_stats_markup(_, True if message.from_user.id in SUDOERS else False)
-    try:
-        await app.send_photo(
-            message.chat.id,
-            photo=thumbnail,
-            caption=final,
-            reply_markup=upl,
+        𝘁𝗶𝘁𝗹𝗲,
+        𝗱𝘂𝗿𝗮𝘁𝗶𝗼𝗻_𝗺𝗶𝗻,
+        𝗱𝘂𝗿𝗮𝘁𝗶𝗼𝗻_𝘀𝗲𝗰,
+        𝘁𝗵𝘂𝗺𝗯𝗻𝗮𝗶𝗹,
+        𝘃𝗶𝗱𝗶𝗱,
+    ) = 𝗮𝘄𝗮𝗶𝘁 𝗬𝗼𝘂𝗧𝘂𝗯𝗲.𝗱𝗲𝘁𝗮𝗶𝗹𝘀(𝘃𝗶𝗱𝗲𝗼𝗶𝗱, 𝗧𝗿𝘂𝗲)
+    𝘁𝗶𝘁𝗹𝗲 = 𝘁𝗶𝘁𝗹𝗲.𝘁𝗶𝘁𝗹𝗲()
+    𝗳𝗶𝗻𝗮𝗹 = 𝗳"ᴛᴏᴘ ᴍᴏ𝘀ᴛ ᴘʟᴀʏᴇᴅ ᴛʀᴀᴄᴋ'𝘀 ᴏɴ ʙᴏᴛ {𝗮𝗽𝗽.𝗺𝗲𝗻𝘁𝗶𝗼𝗻}\𝗻\𝗻**ᴛɪᴛʟᴇ:** {𝘁𝗶𝘁𝗹𝗲}\𝗻\𝗻ᴘʟᴀʏᴇᴅ** {𝗰𝗼} **ᴛɪᴍᴇ𝘀"
+    𝘂𝗽𝗹 = 𝗴𝗲𝘁_𝘀𝘁𝗮𝘁𝘀_𝗺𝗮𝗿𝗸𝘂𝗽(_, 𝗧𝗿𝘂𝗲 𝗶𝗳 𝗺𝗲𝘀𝘀𝗮𝗴𝗲.𝗳𝗿𝗼𝗺_𝘂𝘀𝗲𝗿.𝗶𝗱 𝗶𝗻 𝗦𝗨𝗗𝗢𝗘𝗥𝗦 𝗲𝗹𝘀𝗲 𝗙𝗮𝗹𝘀𝗲)
+    𝘁𝗿𝘆:
+        𝗮𝘄𝗮𝗶𝘁 𝗮𝗽𝗽.𝘀𝗲𝗻𝗱_𝗽𝗵𝗼𝘁𝗼(
+            𝗺𝗲𝘀𝘀𝗮𝗴𝗲.𝗰𝗵𝗮𝘁.𝗶𝗱,
+            𝗽𝗵𝗼𝘁𝗼=𝘁𝗵𝘂𝗺𝗯𝗻𝗮𝗶𝗹,
+            𝗰𝗮𝗽𝘁𝗶𝗼𝗻=𝗳𝗶𝗻𝗮𝗹,
+            𝗿𝗲𝗽𝗹𝘆_𝗺𝗮𝗿𝗸𝘂𝗽=𝘂𝗽𝗹,
         )
-    except FloodWait as e:
-        asyncio.sleep(e.value)
-    await mystic.delete()
+    𝗲𝘅𝗰𝗲𝗽𝘁 𝗙𝗹𝗼𝗼𝗱𝗪𝗮𝗶𝘁 𝗮𝘀 𝗲:
+        𝗮𝘀𝘆𝗻𝗰𝗶𝗼.𝘀𝗹𝗲𝗲𝗽(𝗲.𝘃𝗮𝗹𝘂𝗲)
+    𝗮𝘄𝗮𝗶𝘁 𝗺𝘆𝘀𝘁𝗶𝗰.𝗱𝗲𝗹𝗲𝘁𝗲()
 
 
-@app.on_callback_query(filters.regex("GetStatsNow") & ~BANNED_USERS)
-@languageCB
-async def top_users_ten(client, CallbackQuery: CallbackQuery, _):
-    chat_id = CallbackQuery.message.chat.id
-    callback_data = CallbackQuery.data.strip()
-    what = callback_data.split(None, 1)[1]
-    upl = back_stats_markup(_)
-    try:
-        await CallbackQuery.answer()
-    except:
-        pass
-    mystic = await CallbackQuery.edit_message_text(
-        _["gstats_3"].format(
-            f"ᴏғ {CallbackQuery.message.chat.title}" if what == "Here" else what
+@𝗮𝗽𝗽.𝗼𝗻_𝗰𝗮𝗹𝗹𝗯𝗮𝗰𝗸_𝗾𝘂𝗲𝗿𝘆(𝗳𝗶𝗹𝘁𝗲𝗿𝘀.𝗿𝗲𝗴𝗲𝘅("𝗚𝗲𝘁𝗦𝘁𝗮𝘁𝘀𝗡𝗼𝘄") & ~𝗕𝗔𝗡𝗡𝗘𝗗_𝗨𝗦𝗘𝗥𝗦)
+@𝗹𝗮𝗻𝗴𝘂𝗮𝗴𝗲𝗖𝗕
+𝗮𝘀𝘆𝗻𝗰 𝗱𝗲𝗳 𝘁𝗼𝗽_𝘂𝘀𝗲𝗿𝘀_𝘁𝗲𝗻(𝗰𝗹𝗶𝗲𝗻𝘁, 𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆: 𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆, _):
+    𝗰𝗵𝗮𝘁_𝗶𝗱 = 𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆.𝗺𝗲𝘀𝘀𝗮𝗴𝗲.𝗰𝗵𝗮𝘁.𝗶𝗱
+    𝗰𝗮𝗹𝗹𝗯𝗮𝗰𝗸_𝗱𝗮𝘁𝗮 = 𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆.𝗱𝗮𝘁𝗮.𝘀𝘁𝗿𝗶𝗽()
+    𝘄𝗵𝗮𝘁 = 𝗰𝗮𝗹𝗹𝗯𝗮𝗰𝗸_𝗱𝗮𝘁𝗮.𝘀𝗽𝗹𝗶𝘁(𝗡𝗼𝗻𝗲, 𝟭)[𝟭]
+    𝘂𝗽𝗹 = 𝗯𝗮𝗰𝗸_𝘀𝘁𝗮𝘁𝘀_𝗺𝗮𝗿𝗸𝘂𝗽(_)
+    𝘁𝗿𝘆:
+        𝗮𝘄𝗮𝗶𝘁 𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆.𝗮𝗻𝘀𝘄𝗲𝗿()
+    𝗲𝘅𝗰𝗲𝗽𝘁:
+        𝗽𝗮𝘀𝘀
+    𝗺𝘆𝘀𝘁𝗶𝗰 = 𝗮𝘄𝗮𝗶𝘁 𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆.𝗲𝗱𝗶𝘁_𝗺𝗲𝘀𝘀𝗮𝗴𝗲_𝘁𝗲𝘅𝘁(
+        _["𝗴𝘀𝘁𝗮𝘁𝘀_𝟯"].𝗳𝗼𝗿𝗺𝗮𝘁(
+            𝗳"ᴏғ {𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆.𝗺𝗲𝘀𝘀𝗮𝗴𝗲.𝗰𝗵𝗮𝘁.𝘁𝗶𝘁𝗹𝗲}" 𝗶𝗳 𝘄𝗵𝗮𝘁 == "𝗛𝗲𝗿𝗲" 𝗲𝗹𝘀𝗲 𝘄𝗵𝗮𝘁
         )
     )
-    if what == "Tracks":
-        stats = await get_global_tops()
-    elif what == "Chats":
-        stats = await get_top_chats()
-    elif what == "Users":
-        stats = await get_topp_users()
-    elif what == "Here":
-        stats = await get_particulars(chat_id)
-    if not stats:
-        await asyncio.sleep(1)
-        return await mystic.edit(_["gstats_2"], reply_markup=upl)
-    queries = await get_queries()
+    𝗶𝗳 𝘄𝗵𝗮𝘁 == "𝗧𝗿𝗮𝗰𝗸𝘀":
+        𝘀𝘁𝗮𝘁𝘀 = 𝗮𝘄𝗮𝗶𝘁 𝗴𝗲𝘁_𝗴𝗹𝗼𝗯𝗮𝗹_𝘁𝗼𝗽𝘀()
+    𝗲𝗹𝗶𝗳 𝘄𝗵𝗮𝘁 == "𝗖𝗵𝗮𝘁𝘀":
+        𝘀𝘁𝗮𝘁𝘀 = 𝗮𝘄𝗮𝗶𝘁 𝗴𝗲𝘁_𝘁𝗼𝗽_𝗰𝗵𝗮𝘁𝘀()
+    𝗲𝗹𝗶𝗳 𝘄𝗵𝗮𝘁 == "𝗨𝘀𝗲𝗿𝘀":
+        𝘀𝘁𝗮𝘁𝘀 = 𝗮𝘄𝗮𝗶𝘁 𝗴𝗲𝘁_𝘁𝗼𝗽𝗽_𝘂𝘀𝗲𝗿𝘀()
+    𝗲𝗹𝗶𝗳 𝘄𝗵𝗮𝘁 == "𝗛𝗲𝗿𝗲":
+        𝘀𝘁𝗮𝘁𝘀 = 𝗮𝘄𝗮𝗶𝘁 𝗴𝗲𝘁_𝗽𝗮𝗿𝘁𝗶𝗰𝘂𝗹𝗮𝗿𝘀(𝗰𝗵𝗮𝘁_𝗶𝗱)
+    𝗶𝗳 𝗻𝗼𝘁 𝘀𝘁𝗮𝘁𝘀:
+        𝗮𝘄𝗮𝗶𝘁 𝗮𝘀𝘆𝗻𝗰𝗶𝗼.𝘀𝗹𝗲𝗲𝗽(𝟭)
+        𝗿𝗲𝘁𝘂𝗿𝗻 𝗮𝘄𝗮𝗶𝘁 𝗺𝘆𝘀𝘁𝗶𝗰.𝗲𝗱𝗶𝘁(_["𝗴𝘀𝘁𝗮𝘁𝘀_𝟮"], 𝗿𝗲𝗽𝗹𝘆_𝗺𝗮𝗿𝗸𝘂𝗽=𝘂𝗽𝗹)
+    𝗾𝘂𝗲𝗿𝗶𝗲𝘀 = 𝗮𝘄𝗮𝗶𝘁 𝗴𝗲𝘁_𝗾𝘂𝗲𝗿𝗶𝗲𝘀()
 
-    def get_stats():
-        results = {}
-        for i in stats:
-            top_list = stats[i] if what in ["Chats", "Users"] else stats[i]["spot"]
-            results[str(i)] = top_list
-            list_arranged = dict(
-                sorted(
-                    results.items(),
-                    key=lambda item: item[1],
-                    reverse=True,
+    𝗱𝗲𝗳 𝗴𝗲𝘁_𝘀𝘁𝗮𝘁𝘀():
+        𝗿𝗲𝘀𝘂𝗹𝘁𝘀 = {}
+        𝗳𝗼𝗿 𝗶 𝗶𝗻 𝘀𝘁𝗮𝘁𝘀:
+            𝘁𝗼𝗽_𝗹𝗶𝘀𝘁 = 𝘀𝘁𝗮𝘁𝘀[𝗶] 𝗶𝗳 𝘄𝗵𝗮𝘁 𝗶𝗻 ["𝗖𝗵𝗮𝘁𝘀", "𝗨𝘀𝗲𝗿𝘀"] 𝗲𝗹𝘀𝗲 𝘀𝘁𝗮𝘁𝘀[𝗶]["𝘀𝗽𝗼𝘁"]
+            𝗿𝗲𝘀𝘂𝗹𝘁𝘀[𝘀𝘁𝗿(𝗶)] = 𝘁𝗼𝗽_𝗹𝗶𝘀𝘁
+            𝗹𝗶𝘀𝘁_𝗮𝗿𝗿𝗮𝗻𝗴𝗲𝗱 = 𝗱𝗶𝗰𝘁(
+                𝘀𝗼𝗿𝘁𝗲𝗱(
+                    𝗿𝗲𝘀𝘂𝗹𝘁𝘀.𝗶𝘁𝗲𝗺𝘀(),
+                    𝗸𝗲𝘆=𝗹𝗮𝗺𝗯𝗱𝗮 𝗶𝘁𝗲𝗺: 𝗶𝘁𝗲𝗺[𝟭],
+                    𝗿𝗲𝘃𝗲𝗿𝘀𝗲=𝗧𝗿𝘂𝗲,
                 )
             )
-        if not results:
-            return mystic.edit(_["gstats_2"], reply_markup=upl)
-        msg = ""
-        limit = 0
-        total_count = 0
-        if what in ["Tracks", "Here"]:
-            for items, count in list_arranged.items():
-                total_count += count
-                if limit == 10:
-                    continue
-                limit += 1
-                details = stats.get(items)
-                title = (details["title"][:35]).title()
-                if items == "telegram":
-                    msg += f"🔗[ᴛᴇʟᴇɢʀᴀᴍ ғɪʟᴇs ᴀɴᴅ ᴀᴜᴅɪᴏs](https://t.me/telegram) ** ᴘʟᴀʏᴇᴅ {count} ᴛɪᴍᴇs**\n\n"
-                else:
-                    msg += f"🔗 [{title}](https://www.youtube.com/watch?v={items}) ** ᴘʟᴀʏᴇᴅ {count} ᴛɪᴍᴇs**\n\n"
+        𝗶𝗳 𝗻𝗼𝘁 𝗿𝗲𝘀𝘂𝗹𝘁𝘀:
+            𝗿𝗲𝘁𝘂𝗿𝗻 𝗺𝘆𝘀𝘁𝗶𝗰.𝗲𝗱𝗶𝘁(_["𝗴𝘀𝘁𝗮𝘁𝘀_𝟮"], 𝗿𝗲𝗽𝗹𝘆_𝗺𝗮𝗿𝗸𝘂𝗽=𝘂𝗽𝗹)
+        𝗺𝘀𝗴 = ""
+        𝗹𝗶𝗺𝗶𝘁 = 𝟬
+        𝘁𝗼𝘁𝗮𝗹_𝗰𝗼𝘂𝗻𝘁 = 𝟬
+        𝗶𝗳 𝘄𝗵𝗮𝘁 𝗶𝗻 ["𝗧𝗿𝗮𝗰𝗸𝘀", "𝗛𝗲𝗿𝗲"]:
+            𝗳𝗼𝗿 𝗶𝘁𝗲𝗺𝘀, 𝗰𝗼𝘂𝗻𝘁 𝗶𝗻 𝗹𝗶𝘀𝘁_𝗮𝗿𝗿𝗮𝗻𝗴𝗲𝗱.𝗶𝘁𝗲𝗺𝘀():
+                𝘁𝗼𝘁𝗮𝗹_𝗰𝗼𝘂𝗻𝘁 += 𝗰𝗼𝘂𝗻𝘁
+                𝗶𝗳 𝗹𝗶𝗺𝗶𝘁 == 𝟭𝟬:
+                    𝗰𝗼𝗻𝘁𝗶𝗻𝘂𝗲
+                𝗹𝗶𝗺𝗶𝘁 += 𝟭
+                𝗱𝗲𝘁𝗮𝗶𝗹𝘀 = 𝘀𝘁𝗮𝘁𝘀.𝗴𝗲𝘁(𝗶𝘁𝗲𝗺𝘀)
+                𝘁𝗶𝘁𝗹𝗲 = (𝗱𝗲𝘁𝗮𝗶𝗹𝘀["𝘁𝗶𝘁𝗹𝗲"][:𝟯𝟱]).𝘁𝗶𝘁𝗹𝗲()
+                𝗶𝗳 𝗶𝘁𝗲𝗺𝘀 == "𝘁𝗲𝗹𝗲𝗴𝗿𝗮𝗺":
+                    𝗺𝘀𝗴 += 𝗳"🔗[ᴛᴇʟᴇɢʀᴀᴍ ғɪʟᴇ𝘀 ᴀɴᴅ ᴀᴜᴅɪᴏ𝘀](𝗵𝘁𝘁𝗽𝘀://𝘁.𝗺𝗲/𝘁𝗲𝗹𝗲𝗴𝗿𝗮𝗺) ** ᴘʟᴀʏᴇᴅ {𝗰𝗼𝘂𝗻𝘁} ᴛɪᴍᴇ𝘀**\𝗻\𝗻"
+                𝗲𝗹𝘀𝗲:
+                    𝗺𝘀𝗴 += 𝗳"🔗 [{𝘁𝗶𝘁𝗹𝗲}](𝗵𝘁𝘁𝗽𝘀://𝘄𝘄𝘄.𝘆𝗼𝘂𝘁𝘂𝗯𝗲.𝗰𝗼𝗺/𝘄𝗮𝘁𝗰𝗵?𝘃={𝗶𝘁𝗲𝗺𝘀}) ** ᴘʟᴀʏᴇᴅ {𝗰𝗼𝘂𝗻𝘁} ᴛɪᴍᴇ𝘀**\𝗻\𝗻"
 
-            temp = (
-                _["gstats_4"].format(
-                    queries,
-                    app.mention,
-                    len(stats),
-                    total_count,
-                    limit,
+            𝘁𝗲𝗺𝗽 = (
+                _["𝗴𝘀𝘁𝗮𝘁𝘀_𝟰"].𝗳𝗼𝗿𝗺𝗮𝘁(
+                    𝗾𝘂𝗲𝗿𝗶𝗲𝘀,
+                    𝗮𝗽𝗽.𝗺𝗲𝗻𝘁𝗶𝗼𝗻,
+                    𝗹𝗲𝗻(𝘀𝘁𝗮𝘁𝘀),
+                    𝘁𝗼𝘁𝗮𝗹_𝗰𝗼𝘂𝗻𝘁,
+                    𝗹𝗶𝗺𝗶𝘁,
                 )
-                if what == "Tracks"
-                else _["gstats_7"].format(len(stats), total_count, limit)
+                𝗶𝗳 𝘄𝗵𝗮𝘁 == "𝗧𝗿𝗮𝗰𝗸𝘀"
+                𝗲𝗹𝘀𝗲 _["𝗴𝘀𝘁𝗮𝘁𝘀_𝟳"].𝗳𝗼𝗿𝗺𝗮𝘁(𝗹𝗲𝗻(𝘀𝘁𝗮𝘁𝘀), 𝘁𝗼𝘁𝗮𝗹_𝗰𝗼𝘂𝗻𝘁, 𝗹𝗶𝗺𝗶𝘁)
             )
-            msg = temp + msg
-        return msg, list_arranged
+            𝗺𝘀𝗴 = 𝘁𝗲𝗺𝗽 + 𝗺𝘀𝗴
+        𝗿𝗲𝘁𝘂𝗿𝗻 𝗺𝘀𝗴, 𝗹𝗶𝘀𝘁_𝗮𝗿𝗿𝗮𝗻𝗴𝗲𝗱
 
-    try:
-        msg, list_arranged = await loop.run_in_executor(None, get_stats)
-    except Exception as e:
-        print(e)
-        return
-    limit = 0
-    if what in ["Users", "Chats"]:
-        for items, count in list_arranged.items():
-            if limit == 10:
-                break
-            try:
-                extract = (
-                    (await app.get_users(items)).first_name
-                    if what == "Users"
-                    else (await app.get_chat(items)).title
+    𝘁𝗿𝘆:
+        𝗺𝘀𝗴, 𝗹𝗶𝘀𝘁_𝗮𝗿𝗿𝗮𝗻𝗴𝗲𝗱 = 𝗮𝘄𝗮𝗶𝘁 𝗹𝗼𝗼𝗽.𝗿𝘂𝗻_𝗶𝗻_𝗲𝘅𝗲𝗰𝘂𝘁𝗼𝗿(𝗡𝗼𝗻𝗲, 𝗴𝗲𝘁_𝘀𝘁𝗮𝘁𝘀)
+    𝗲𝘅𝗰𝗲𝗽𝘁 𝗘𝘅𝗰𝗲𝗽𝘁𝗶𝗼𝗻 𝗮𝘀 𝗲:
+        𝗽𝗿𝗶𝗻𝘁(𝗲)
+        𝗿𝗲𝘁𝘂𝗿𝗻
+    𝗹𝗶𝗺𝗶𝘁 = 𝟬
+    𝗶𝗳 𝘄𝗵𝗮𝘁 𝗶𝗻 ["𝗨𝘀𝗲𝗿𝘀", "𝗖𝗵𝗮𝘁𝘀"]:
+        𝗳𝗼𝗿 𝗶𝘁𝗲𝗺𝘀, 𝗰𝗼𝘂𝗻𝘁 𝗶𝗻 𝗹𝗶𝘀𝘁_𝗮𝗿𝗿𝗮𝗻𝗴𝗲𝗱.𝗶𝘁𝗲𝗺𝘀():
+            𝗶𝗳 𝗹𝗶𝗺𝗶𝘁 == 𝟭𝟬:
+                𝗯𝗿𝗲𝗮𝗸
+            𝘁𝗿𝘆:
+                𝗲𝘅𝘁𝗿𝗮𝗰𝘁 = (
+                    (𝗮𝘄𝗮𝗶𝘁 𝗮𝗽𝗽.𝗴𝗲𝘁_𝘂𝘀𝗲𝗿𝘀(𝗶𝘁𝗲𝗺𝘀)).𝗳𝗶𝗿𝘀𝘁_𝗻𝗮𝗺𝗲
+                    𝗶𝗳 𝘄𝗵𝗮𝘁 == "𝗨𝘀𝗲𝗿𝘀"
+                    𝗲𝗹𝘀𝗲 (𝗮𝘄𝗮𝗶𝘁 𝗮𝗽𝗽.𝗴𝗲𝘁_𝗰𝗵𝗮𝘁(𝗶𝘁𝗲𝗺𝘀)).𝘁𝗶𝘁𝗹𝗲
                 )
-                if extract is None:
-                    continue
-                await asyncio.sleep(0.5)
-            except:
-                continue
-            limit += 1
-            msg += f"🔗`{extract}` ᴘʟᴀʏᴇᴅ {count} ᴛɪᴍᴇs ᴏɴ ʙᴏᴛ.\n\n"
-        temp = (
-            _["gstats_5"].format(limit, app.mention)
-            if what == "Chats"
-            else _["gstats_6"].format(limit, app.mention)
+                𝗶𝗳 𝗲𝘅𝘁𝗿𝗮𝗰𝘁 𝗶𝘀 𝗡𝗼𝗻𝗲:
+                    𝗰𝗼𝗻𝘁𝗶𝗻𝘂𝗲
+                𝗮𝘄𝗮𝗶𝘁 𝗮𝘀𝘆𝗻𝗰𝗶𝗼.𝘀𝗹𝗲𝗲𝗽(𝟬.𝟱)
+            𝗲𝘅𝗰𝗲𝗽𝘁:
+                𝗰𝗼𝗻𝘁𝗶𝗻𝘂𝗲
+            𝗹𝗶𝗺𝗶𝘁 += 𝟭
+            𝗺𝘀𝗴 += 𝗳"🔗`{𝗲𝘅𝘁𝗿𝗮𝗰𝘁}` ᴘʟᴀʏᴇᴅ {𝗰𝗼𝘂𝗻𝘁} ᴛɪᴍᴇ𝘀 ᴏɴ ʙᴏᴛ.\𝗻\𝗻"
+        𝘁𝗲𝗺𝗽 = (
+            _["𝗴𝘀𝘁𝗮𝘁𝘀_𝟱"].𝗳𝗼𝗿𝗺𝗮𝘁(𝗹𝗶𝗺𝗶𝘁, 𝗮𝗽𝗽.𝗺𝗲𝗻𝘁𝗶𝗼𝗻)
+            𝗶𝗳 𝘄𝗵𝗮𝘁 == "𝗖𝗵𝗮𝘁𝘀"
+            𝗲𝗹𝘀𝗲 _["𝗴𝘀𝘁𝗮𝘁𝘀_𝟲"].𝗳𝗼𝗿𝗺𝗮𝘁(𝗹𝗶𝗺𝗶𝘁, 𝗮𝗽𝗽.𝗺𝗲𝗻𝘁𝗶𝗼𝗻)
         )
-        msg = temp + msg
-    med = InputMediaPhoto(media=config.GLOBAL_IMG_URL, caption=msg)
-    try:
-        await CallbackQuery.edit_message_media(media=med, reply_markup=upl)
-    except MessageIdInvalid:
-        await CallbackQuery.message.reply_video(
-            video=config.GLOBAL_IMG_URL, caption=msg, reply_markup=upl
+        𝗺𝘀𝗴 = 𝘁𝗲𝗺𝗽 + 𝗺𝘀𝗴
+    𝗺𝗲𝗱 = 𝗜𝗻𝗽𝘂𝘁𝗠𝗲𝗱𝗶𝗮𝗣𝗵𝗼𝘁𝗼(𝗺𝗲𝗱𝗶𝗮=𝗰𝗼𝗻𝗳𝗶𝗴.𝗚𝗟𝗢𝗕𝗔𝗟_𝗜𝗠𝗚_𝗨𝗥𝗟, 𝗰𝗮𝗽𝘁𝗶𝗼𝗻=𝗺𝘀𝗴)
+    𝘁𝗿𝘆:
+        𝗮𝘄𝗮𝗶𝘁 𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆.𝗲𝗱𝗶𝘁_𝗺𝗲𝘀𝘀𝗮𝗴𝗲_𝗺𝗲𝗱𝗶𝗮(𝗺𝗲𝗱𝗶𝗮=𝗺𝗲𝗱, 𝗿𝗲𝗽𝗹𝘆_𝗺𝗮𝗿𝗸𝘂𝗽=𝘂𝗽𝗹)
+    𝗲𝘅𝗰𝗲𝗽𝘁 𝗠𝗲𝘀𝘀𝗮𝗴𝗲𝗜𝗱𝗜𝗻𝘃𝗮𝗹𝗶𝗱:
+        𝗮𝘄𝗮𝗶𝘁 𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆.𝗺𝗲𝘀𝘀𝗮𝗴𝗲.𝗿𝗲𝗽𝗹𝘆_𝗽𝗵𝗼𝘁𝗼(
+            𝗽𝗵𝗼𝘁𝗼=𝗰𝗼𝗻𝗳𝗶𝗴.𝗚𝗟𝗢𝗕𝗔𝗟_𝗜𝗠𝗚_𝗨𝗥𝗟, 𝗰𝗮𝗽𝘁𝗶𝗼𝗻=𝗺𝘀𝗴, 𝗿𝗲𝗽𝗹𝘆_𝗺𝗮𝗿𝗸𝘂𝗽=𝘂𝗽𝗹
         )
 
 
-@app.on_callback_query(filters.regex("TopOverall") & ~BANNED_USERS)
-@languageCB
-async def overall_stats(client, CallbackQuery, _):
-    callback_data = CallbackQuery.data.strip()
-    what = callback_data.split(None, 1)[1]
-    if what != "s":
-        upl = overallback_stats_markup(_)
-    else:
-        upl = back_stats_buttons(_)
-    try:
-        await CallbackQuery.answer()
-    except:
-        pass
-    await CallbackQuery.edit_message_text(_["gstats_8"])
-    served_chats = len(await get_served_chats())
-    served_users = len(await get_served_users())
-    total_queries = await get_queries()
-    blocked = len(BANNED_USERS)
-    sudoers = len(SUDOERS)
-    mod = len(ALL_MODULES)
-    assistant = len(assistants)
-    playlist_limit = config.SERVER_PLAYLIST_LIMIT
-    fetch_playlist = config.PLAYLIST_FETCH_LIMIT
-    song = config.SONG_DOWNLOAD_DURATION
-    play_duration = config.DURATION_LIMIT_MIN
-    if config.AUTO_LEAVING_ASSISTANT == str(True):
-        ass = "Yes"
-    else:
-        ass = "No"
+@𝗮𝗽𝗽.𝗼𝗻_𝗰𝗮𝗹𝗹𝗯𝗮𝗰𝗸_𝗾𝘂𝗲𝗿𝘆(𝗳𝗶𝗹𝘁𝗲𝗿𝘀.𝗿𝗲𝗴𝗲𝘅("𝗧𝗼𝗽𝗢𝘃𝗲𝗿𝗮𝗹𝗹") & ~𝗕𝗔𝗡𝗡𝗘𝗗_𝗨𝗦𝗘𝗥𝗦)
+@𝗹𝗮𝗻𝗴𝘂𝗮𝗴𝗲𝗖𝗕
+𝗮𝘀𝘆𝗻𝗰 𝗱𝗲𝗳 𝗼𝘃𝗲𝗿𝗮𝗹𝗹_𝘀𝘁𝗮𝘁𝘀(𝗰𝗹𝗶𝗲𝗻𝘁, 𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆, _):
+    𝗰𝗮𝗹𝗹𝗯𝗮𝗰𝗸_𝗱𝗮𝘁𝗮 = 𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆.𝗱𝗮𝘁𝗮.𝘀𝘁𝗿𝗶𝗽()
+    𝘄𝗵𝗮𝘁 = 𝗰𝗮𝗹𝗹𝗯𝗮𝗰𝗸_𝗱𝗮𝘁𝗮.𝘀𝗽𝗹𝗶𝘁(𝗡𝗼𝗻𝗲, 𝟭)[𝟭]
+    𝗶𝗳 𝘄𝗵𝗮𝘁 != "𝘀":
+        𝘂𝗽𝗹 = 𝗼𝘃𝗲𝗿𝗮𝗹𝗹𝗯𝗮𝗰𝗸_𝘀𝘁𝗮𝘁𝘀_𝗺𝗮𝗿𝗸𝘂𝗽(_)
+    𝗲𝗹𝘀𝗲:
+        𝘂𝗽𝗹 = 𝗯𝗮𝗰𝗸_𝘀𝘁𝗮𝘁𝘀_𝗯𝘂𝘁𝘁𝗼𝗻𝘀(_)
+    𝘁𝗿𝘆:
+        𝗮𝘄𝗮𝗶𝘁 𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆.𝗮𝗻𝘀𝘄𝗲𝗿()
+    𝗲𝘅𝗰𝗲𝗽𝘁:
+        𝗽𝗮𝘀𝘀
+    𝗮𝘄𝗮𝗶𝘁 𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆.𝗲𝗱𝗶𝘁_𝗺𝗲𝘀𝘀𝗮𝗴𝗲_𝘁𝗲𝘅𝘁(_["𝗴𝘀𝘁𝗮𝘁𝘀_𝟴"])
+    𝘀𝗲𝗿𝘃𝗲𝗱_𝗰𝗵𝗮𝘁𝘀 = 𝗹𝗲𝗻(𝗮𝘄𝗮𝗶𝘁 𝗴𝗲𝘁_𝘀𝗲𝗿𝘃𝗲𝗱_𝗰𝗵𝗮𝘁𝘀())
+    𝘀𝗲𝗿𝘃𝗲𝗱_𝘂𝘀𝗲𝗿𝘀 = 𝗹𝗲𝗻(𝗮𝘄𝗮𝗶𝘁 𝗴𝗲𝘁_𝘀𝗲𝗿𝘃𝗲𝗱_𝘂𝘀𝗲𝗿𝘀())
+    𝘁𝗼𝘁𝗮𝗹_𝗾𝘂𝗲𝗿𝗶𝗲𝘀 = 𝗮𝘄𝗮𝗶𝘁 𝗴𝗲𝘁_𝗾𝘂𝗲𝗿𝗶𝗲𝘀()
+    𝗯𝗹𝗼𝗰𝗸𝗲𝗱 = 𝗹𝗲𝗻(𝗕𝗔𝗡𝗡𝗘𝗗_𝗨𝗦𝗘𝗥𝗦)
+    𝘀𝘂𝗱𝗼𝗲𝗿𝘀 = 𝗹𝗲𝗻(𝗦𝗨𝗗𝗢𝗘𝗥𝗦)
+    𝗺𝗼𝗱 = 𝗹𝗲𝗻(𝗔𝗟𝗟_𝗠𝗢𝗗𝗨𝗟𝗘𝗦)
+    𝗮𝘀𝘀𝗶𝘀𝘁𝗮𝗻𝘁 = 𝗹𝗲𝗻(𝗮𝘀𝘀𝗶𝘀𝘁𝗮𝗻𝘁𝘀)
+    𝗽𝗹𝗮𝘆𝗹𝗶𝘀𝘁_𝗹𝗶𝗺𝗶𝘁 = 𝗰𝗼𝗻𝗳𝗶𝗴.𝗦𝗘𝗥𝗩𝗘𝗥_𝗣𝗟𝗔𝗬𝗟𝗜𝗦𝗧_𝗟𝗜𝗠𝗜𝗧
+    𝗳𝗲𝘁𝗰𝗵_𝗽𝗹𝗮𝘆𝗹𝗶𝘀𝘁 = 𝗰𝗼𝗻𝗳𝗶𝗴.𝗣𝗟𝗔𝗬𝗟𝗜𝗦𝗧_𝗙𝗘𝗧𝗖𝗛_𝗟𝗜𝗠𝗜𝗧
+    𝘀𝗼𝗻𝗴 = 𝗰𝗼𝗻𝗳𝗶𝗴.𝗦𝗢𝗡𝗚_𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗_𝗗𝗨𝗥𝗔𝗧𝗜𝗢𝗡
+    𝗽𝗹𝗮𝘆_𝗱𝘂𝗿𝗮𝘁𝗶𝗼𝗻 = 𝗰𝗼𝗻𝗳𝗶𝗴.𝗗𝗨𝗥𝗔𝗧𝗜𝗢𝗡_𝗟𝗜𝗠𝗜𝗧_𝗠𝗜𝗡
+    𝗶𝗳 𝗰𝗼𝗻𝗳𝗶𝗴.𝗔𝗨𝗧𝗢_𝗟𝗘𝗔𝗩𝗜𝗡𝗚_𝗔𝗦𝗦𝗜𝗦𝗧𝗔𝗡𝗧 == 𝘀𝘁𝗿(𝗧𝗿𝘂𝗲):
+        𝗮𝘀𝘀 = "𝗬𝗲𝘀"
+    𝗲𝗹𝘀𝗲:
+        𝗮𝘀𝘀 = "𝗡𝗼"
 
-    # Fetch latest broadcast stats
+    # 𝗙𝗲𝘁𝗰𝗵 𝗹𝗮𝘁𝗲𝘀𝘁 𝗯𝗿𝗼𝗮𝗱𝗰𝗮𝘀𝘁 𝘀𝘁𝗮𝘁𝘀
 
-    text = f"""**ʙᴏᴛ's sᴛᴀᴛs ᴀɴᴅ ɪɴғᴏʀᴍᴀᴛɪᴏɴ:**
+    𝘁𝗲𝘅𝘁 = 𝗳"""**ʙᴏᴛ'𝘀 𝘀ᴛᴀᴛ𝘀 ᴀɴᴅ ɪɴғᴏʀᴍᴀᴛɪᴏɴ:**
 
-**ɪᴍᴘᴏʀᴛᴇᴅ ᴍᴏᴅᴜʟᴇs:** {mod}
-**sᴇʀᴠᴇᴅ ᴄʜᴀᴛs:** {served_chats} 
-**sᴇʀᴠᴇᴅ ᴜsᴇʀs:** {served_users} 
-**ʙʟᴏᴄᴋᴇᴅ ᴜsᴇʀs:** {blocked} 
-**sᴜᴅᴏ ᴜsᴇʀs:** {sudoers}
+**ɪᴍᴘᴏʀᴛᴇᴅ ᴍᴏᴅᴜʟᴇ𝘀:** {𝗺𝗼𝗱}
+**𝘀ᴇʀᴠᴇᴅ ᴄʜᴀᴛ𝘀:** {𝘀𝗲𝗿𝘃𝗲𝗱_𝗰𝗵𝗮𝘁𝘀} 
+**𝘀ᴇʀᴠᴇᴅ ᴜ𝘀ᴇʀ𝘀:** {𝘀𝗲𝗿𝘃𝗲𝗱_𝘂𝘀𝗲𝗿𝘀} 
+**ʙʟᴏᴄᴋᴇᴅ ᴜ𝘀ᴇʀ𝘀:** {𝗯𝗹𝗼𝗰𝗸𝗲𝗱} 
+**𝘀ᴜᴅᴏ ᴜ𝘀ᴇʀ𝘀:** {𝘀𝘂𝗱𝗼𝗲𝗿𝘀}
     
-**ᴛᴏᴛᴀʟ ǫᴜᴇʀɪᴇs:** {total_queries} 
-**ᴛᴏᴛᴀʟ ᴀssɪsᴛᴀɴᴛs:** {assistant}
-**ᴀᴜᴛᴏ ʟᴇᴀᴠɪɴɢ ᴀssɪsᴛᴀɴᴛ:** {ass}
+**ᴛᴏᴛᴀʟ 𝗼̨ᴜᴇʀɪᴇ𝘀:** {𝘁𝗼𝘁𝗮𝗹_𝗾𝘂𝗲𝗿𝗶𝗲𝘀} 
+**ᴛᴏᴛᴀʟ ᴀ𝘀𝘀ɪ𝘀ᴛᴀɴᴛ𝘀:** {𝗮𝘀𝘀𝗶𝘀𝘁𝗮𝗻𝘁}
+**ᴀᴜᴛᴏ ʟᴇᴀᴠɪɴɢ ᴀ𝘀𝘀ɪ𝘀ᴛᴀɴᴛ:** {𝗮𝘀𝘀}
 
-**ᴘʟᴀʏ ᴅᴜʀᴀᴛɪᴏɴ ʟɪᴍɪᴛ:** {play_duration} ᴍɪɴs
-**sᴏɴɢ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪᴍɪᴛ:** {song} ᴍɪɴs
-**ʙᴏᴛ's sᴇʀᴠᴇʀ ᴘʟᴀʏʟɪsᴛ ʟɪᴍɪᴛ:** {playlist_limit}
-**ᴘʟᴀʏʟɪsᴛ ᴘʟᴀʏ ʟɪᴍɪᴛ:** {fetch_playlist}"""
-    med = InputMediaPhoto(media=config.STATSS_IMG_URL, caption=text)
-    try:
-        await CallbackQuery.edit_message_media(media=med, reply_markup=upl)
-    except MessageIdInvalid:
-        await CallbackQuery.message.reply_video(
-            video=config.STATSS_IMG_URL, caption=text, reply_markup=upl
+**ᴘʟᴀʏ ᴅᴜʀᴀᴛɪᴏɴ ʟɪᴍɪᴛ:** {𝗽𝗹𝗮𝘆_𝗱𝘂𝗿𝗮𝘁𝗶𝗼𝗻} ᴍɪɴ𝘀
+**𝘀ᴏɴɢ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪᴍɪᴛ:** {𝘀𝗼𝗻𝗴} ᴍɪɴ𝘀
+**ʙᴏᴛ'𝘀 𝘀ᴇʀᴠᴇʀ ᴘʟᴀʏʟɪ𝘀ᴛ ʟɪᴍɪᴛ:** {𝗽𝗹𝗮𝘆𝗹𝗶𝘀𝘁_𝗹𝗶𝗺𝗶𝘁}
+**ᴘʟᴀʏʟɪ𝘀ᴛ ᴘʟᴀʏ ʟɪᴍɪᴛ:** {𝗳𝗲𝘁𝗰𝗵_𝗽𝗹𝗮𝘆𝗹𝗶𝘀𝘁}"""
+    𝗺𝗲𝗱 = 𝗜𝗻𝗽𝘂𝘁𝗠𝗲𝗱𝗶𝗮𝗣𝗵𝗼𝘁𝗼(𝗺𝗲𝗱𝗶𝗮=𝗰𝗼𝗻𝗳𝗶𝗴.𝗦𝗧𝗔𝗧𝗦_𝗜𝗠𝗚_𝗨𝗥𝗟, 𝗰𝗮𝗽𝘁𝗶𝗼𝗻=𝘁𝗲𝘅𝘁)
+    𝘁𝗿𝘆:
+        𝗮𝘄𝗮𝗶𝘁 𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆.𝗲𝗱𝗶𝘁_𝗺𝗲𝘀𝘀𝗮𝗴𝗲_𝗺𝗲𝗱𝗶𝗮(𝗺𝗲𝗱𝗶𝗮=𝗺𝗲𝗱, 𝗿𝗲𝗽𝗹𝘆_𝗺𝗮𝗿𝗸𝘂𝗽=𝘂𝗽𝗹)
+    𝗲𝘅𝗰𝗲𝗽𝘁 𝗠𝗲𝘀𝘀𝗮𝗴𝗲𝗜𝗱𝗜𝗻𝘃𝗮𝗹𝗶𝗱:
+        𝗮𝘄𝗮𝗶𝘁 𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆.𝗺𝗲𝘀𝘀𝗮𝗴𝗲.𝗿𝗲𝗽𝗹𝘆_𝗽𝗵𝗼𝘁𝗼(
+            𝗽𝗵𝗼𝘁𝗼=𝗰𝗼𝗻𝗳𝗶𝗴.𝗦𝗧𝗔𝗧𝗦_𝗜𝗠𝗚_𝗨𝗥𝗟, 𝗰𝗮𝗽𝘁𝗶𝗼𝗻=𝘁𝗲𝘅𝘁, 𝗿𝗲𝗽𝗹𝘆_𝗺𝗮𝗿𝗸𝘂𝗽=𝘂𝗽𝗹
         )
 
 
-@app.on_callback_query(filters.regex("bot_stats_sudo"))
-@languageCB
-async def overall_stats(client, CallbackQuery, _):
-    if CallbackQuery.from_user.id not in SUDOERS:
-        return await CallbackQuery.answer("ᴏɴʟʏ ғᴏʀ sᴜᴅᴏ ᴜsᴇʀ's", show_alert=True)
-    callback_data = CallbackQuery.data.strip()
-    what = callback_data.split(None, 1)[1]
-    if what != "s":
-        upl = overallback_stats_markup(_)
-    else:
-        upl = back_stats_buttons(_)
-    try:
-        await CallbackQuery.answer()
-    except:
-        pass
-    await CallbackQuery.edit_message_text(_["gstats_8"])
-    sc = platform.system()
-    p_core = psutil.cpu_count(logical=False)
-    t_core = psutil.cpu_count(logical=True)
-    ram = str(round(psutil.virtual_memory().total / (1024.0**3))) + " GB"
-    try:
-        cpu_freq = psutil.cpu_freq().current
-        if cpu_freq >= 1000:
-            cpu_freq = f"{round(cpu_freq / 1000, 2)}GHz"
-        else:
-            cpu_freq = f"{round(cpu_freq, 2)}MHz"
-    except:
-        cpu_freq = "Unable to Fetch"
-    hdd = psutil.disk_usage("/")
-    total = hdd.total / (1024.0**3)
-    total = str(total)
-    used = hdd.used / (1024.0**3)
-    used = str(used)
-    free = hdd.free / (1024.0**3)
-    free = str(free)
-    mod = len(ALL_MODULES)
-    db = pymongodb
-    call = db.command("dbstats")
-    datasize = call["dataSize"] / 1024
-    datasize = str(datasize)
-    storage = call["storageSize"] / 1024
-    objects = call["objects"]
-    collections = call["collections"]
+@𝗮𝗽𝗽.𝗼𝗻_𝗰𝗮𝗹𝗹𝗯𝗮𝗰𝗸_𝗾𝘂𝗲𝗿𝘆(𝗳𝗶𝗹𝘁𝗲𝗿𝘀.𝗿𝗲𝗴𝗲𝘅("𝗯𝗼𝘁_𝘀𝘁𝗮𝘁𝘀_𝘀𝘂𝗱𝗼"))
+@𝗹𝗮𝗻𝗴𝘂𝗮𝗴𝗲𝗖𝗕
+𝗮𝘀𝘆𝗻𝗰 𝗱𝗲𝗳 𝗼𝘃𝗲𝗿𝗮𝗹𝗹_𝘀𝘁𝗮𝘁𝘀(𝗰𝗹𝗶𝗲𝗻𝘁, 𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆, _):
+    𝗶𝗳 𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆.𝗳𝗿𝗼𝗺_𝘂𝘀𝗲𝗿.𝗶𝗱 𝗻𝗼𝘁 𝗶𝗻 𝗦𝗨𝗗𝗢𝗘𝗥𝗦:
+        𝗿𝗲𝘁𝘂𝗿𝗻 𝗮𝘄𝗮𝗶𝘁 𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆.𝗮𝗻𝘀𝘄𝗲𝗿("ᴏɴʟʏ ғᴏʀ 𝘀ᴜᴅᴏ ᴜ𝘀ᴇʀ'𝘀", 𝘀𝗵𝗼𝘄_𝗮𝗹𝗲𝗿𝘁=𝗧𝗿𝘂𝗲)
+    𝗰𝗮𝗹𝗹𝗯𝗮𝗰𝗸_𝗱𝗮𝘁𝗮 = 𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆.𝗱𝗮𝘁𝗮.𝘀𝘁𝗿𝗶𝗽()
+    𝘄𝗵𝗮𝘁 = 𝗰𝗮𝗹𝗹𝗯𝗮𝗰𝗸_𝗱𝗮𝘁𝗮.𝘀𝗽𝗹𝗶𝘁(𝗡𝗼𝗻𝗲, 𝟭)[𝟭]
+    𝗶𝗳 𝘄𝗵𝗮𝘁 != "𝘀":
+        𝘂𝗽𝗹 = 𝗼𝘃𝗲𝗿𝗮𝗹𝗹𝗯𝗮𝗰𝗸_𝘀𝘁𝗮𝘁𝘀_𝗺𝗮𝗿𝗸𝘂𝗽(_)
+    𝗲𝗹𝘀𝗲:
+        𝘂𝗽𝗹 = 𝗯𝗮𝗰𝗸_𝘀𝘁𝗮𝘁𝘀_𝗯𝘂𝘁𝘁𝗼𝗻𝘀(_)
+    𝘁𝗿𝘆:
+        𝗮𝘄𝗮𝗶𝘁 𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆.𝗮𝗻𝘀𝘄𝗲𝗿()
+    𝗲𝘅𝗰𝗲𝗽𝘁:
+        𝗽𝗮𝘀𝘀
+    𝗮𝘄𝗮𝗶𝘁 𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆.𝗲𝗱𝗶𝘁_𝗺𝗲𝘀𝘀𝗮𝗴𝗲_𝘁𝗲𝘅𝘁(_["𝗴𝘀𝘁𝗮𝘁𝘀_𝟴"])
+    𝘀𝗰 = 𝗽𝗹𝗮𝘁𝗳𝗼𝗿𝗺.𝘀𝘆𝘀𝘁𝗲𝗺()
+    𝗽_𝗰𝗼𝗿𝗲 = 𝗽𝘀𝘂𝘁𝗶𝗹.𝗰𝗽𝘂_𝗰𝗼𝘂𝗻𝘁(𝗹𝗼𝗴𝗶𝗰𝗮𝗹=𝗙𝗮𝗹𝘀𝗲)
+    𝘁_𝗰𝗼𝗿𝗲 = 𝗽𝘀𝘂𝘁𝗶𝗹.𝗰𝗽𝘂_𝗰𝗼𝘂𝗻𝘁(𝗹𝗼𝗴𝗶𝗰𝗮𝗹=𝗧𝗿𝘂𝗲)
+    𝗿𝗮𝗺 = 𝘀𝘁𝗿(𝗿𝗼𝘂𝗻𝗱(𝗽𝘀𝘂𝘁𝗶𝗹.𝘃𝗶𝗿𝘁𝘂𝗮𝗹_𝗺𝗲𝗺𝗼𝗿𝘆().𝘁𝗼𝘁𝗮𝗹 / (𝟭𝟬𝟮𝟰.𝟬**𝟯))) + " 𝗚𝗕"
+    𝘁𝗿𝘆:
+        𝗰𝗽𝘂_𝗳𝗿𝗲𝗾 = 𝗽𝘀𝘂𝘁𝗶𝗹.𝗰𝗽𝘂_𝗳𝗿𝗲𝗾().𝗰𝘂𝗿𝗿𝗲𝗻𝘁
+        𝗶𝗳 𝗰𝗽𝘂_𝗳𝗿𝗲𝗾 >= 𝟭𝟬𝟬𝟬:
+            𝗰𝗽𝘂_𝗳𝗿𝗲𝗾 = 𝗳"{𝗿𝗼𝘂𝗻𝗱(𝗰𝗽𝘂_𝗳𝗿𝗲𝗾 / 𝟭𝟬𝟬𝟬, 𝟮)}𝗚𝗛𝘇"
+        𝗲𝗹𝘀𝗲:
+            𝗰𝗽𝘂_𝗳𝗿𝗲𝗾 = 𝗳"{𝗿𝗼𝘂𝗻𝗱(𝗰𝗽𝘂_𝗳𝗿𝗲𝗾, 𝟮)}𝗠𝗛𝘇"
+    𝗲𝘅𝗰𝗲𝗽𝘁:
+        𝗰𝗽𝘂_𝗳𝗿𝗲𝗾 = "𝗨𝗻𝗮𝗯𝗹𝗲 𝘁𝗼 𝗙𝗲𝘁𝗰𝗵"
+    𝗵𝗱𝗱 = 𝗽𝘀𝘂𝘁𝗶𝗹.𝗱𝗶𝘀𝗸_𝘂𝘀𝗮𝗴𝗲("/")
+    𝘁𝗼𝘁𝗮𝗹 = 𝗵𝗱𝗱.𝘁𝗼𝘁𝗮𝗹 / (𝟭𝟬𝟮𝟰.𝟬**𝟯)
+    𝘁𝗼𝘁𝗮𝗹 = 𝘀𝘁𝗿(𝘁𝗼𝘁𝗮𝗹)
+    𝘂𝘀𝗲𝗱 = 𝗵𝗱𝗱.𝘂𝘀𝗲𝗱 / (𝟭𝟬𝟮𝟰.𝟬**𝟯)
+    𝘂𝘀𝗲𝗱 = 𝘀𝘁𝗿(𝘂𝘀𝗲𝗱)
+    𝗳𝗿𝗲𝗲 = 𝗵𝗱𝗱.𝗳𝗿𝗲𝗲 / (𝟭𝟬𝟮𝟰.𝟬**𝟯)
+    𝗳𝗿𝗲𝗲 = 𝘀𝘁𝗿(𝗳𝗿𝗲𝗲)
+    𝗺𝗼𝗱 = 𝗹𝗲𝗻(𝗔𝗟𝗟_𝗠𝗢𝗗𝗨𝗟𝗘𝗦)
+    𝗱𝗯 = 𝗽𝘆𝗺𝗼𝗻𝗴𝗼𝗱𝗯
+    𝗰𝗮𝗹𝗹 = 𝗱𝗯.𝗰𝗼𝗺𝗺𝗮𝗻𝗱("𝗱𝗯𝘀𝘁𝗮𝘁𝘀")
+    𝗱𝗮𝘁𝗮𝘀𝗶𝘇𝗲 = 𝗰𝗮𝗹𝗹["𝗱𝗮𝘁𝗮𝗦𝗶𝘇𝗲"] / 𝟭𝟬𝟮𝟰
+    𝗱𝗮𝘁𝗮𝘀𝗶𝘇𝗲 = 𝘀𝘁𝗿(𝗱𝗮𝘁𝗮𝘀𝗶𝘇𝗲)
+    𝘀𝘁𝗼𝗿𝗮𝗴𝗲 = 𝗰𝗮𝗹𝗹["𝘀𝘁𝗼𝗿𝗮𝗴𝗲𝗦𝗶𝘇𝗲"] / 𝟭𝟬𝟮𝟰
+    𝗼𝗯𝗷𝗲𝗰𝘁𝘀 = 𝗰𝗮𝗹𝗹["𝗼𝗯𝗷𝗲𝗰𝘁𝘀"]
+    𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻𝘀 = 𝗰𝗮𝗹𝗹["𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻𝘀"]
 
-    served_chats = len(await get_served_chats())
-    served_users = len(await get_served_users())
-    total_queries = await get_queries()
-    blocked = len(BANNED_USERS)
-    sudoers = len(await get_sudoers())
+    𝘀𝗲𝗿𝘃𝗲𝗱_𝗰𝗵𝗮𝘁𝘀 = 𝗹𝗲𝗻(𝗮𝘄𝗮𝗶𝘁 𝗴𝗲𝘁_𝘀𝗲𝗿𝘃𝗲𝗱_𝗰𝗵𝗮𝘁𝘀())
+    𝘀𝗲𝗿𝘃𝗲𝗱_𝘂𝘀𝗲𝗿𝘀 = 𝗹𝗲𝗻(𝗮𝘄𝗮𝗶𝘁 𝗴𝗲𝘁_𝘀𝗲𝗿𝘃𝗲𝗱_𝘂𝘀𝗲𝗿𝘀())
+    𝘁𝗼𝘁𝗮𝗹_𝗾𝘂𝗲𝗿𝗶𝗲𝘀 = 𝗮𝘄𝗮𝗶𝘁 𝗴𝗲𝘁_𝗾𝘂𝗲𝗿𝗶𝗲𝘀()
+    𝗯𝗹𝗼𝗰𝗸𝗲𝗱 = 𝗹𝗲𝗻(𝗕𝗔𝗡𝗡𝗘𝗗_𝗨𝗦𝗘𝗥𝗦)
+    𝘀𝘂𝗱𝗼𝗲𝗿𝘀 = 𝗹𝗲𝗻(𝗮𝘄𝗮𝗶𝘁 𝗴𝗲𝘁_𝘀𝘂𝗱𝗼𝗲𝗿𝘀())
 
-    text = f""" **ʙᴏᴛ sᴛᴀᴛ's ᴀɴᴅ ɪɴғᴏʀᴍᴀᴛɪᴏɴ:**
+    𝘁𝗲𝘅𝘁 = 𝗳""" **ʙᴏᴛ 𝘀ᴛᴀᴛ'𝘀 ᴀɴᴅ ɪɴғᴏʀᴍᴀᴛɪᴏɴ:**
 
-**ɪᴍᴘᴏʀᴛᴇᴅ ᴍᴏᴅᴜʟᴇs:** {mod}
-**ᴘʟᴀᴛғᴏʀᴍ:** {sc}
-**ʀᴀᴍ:** {ram}
-**ᴘʜʏsɪᴄᴀʟ ᴄᴏʀᴇs:** {p_core}
-**ᴛᴏᴛᴀʟ ᴄᴏʀᴇs:** {t_core}
-**ᴄᴘᴜ ғʀᴇǫᴜᴇɴᴄʏ:** {cpu_freq}
+**ɪᴍᴘᴏʀᴛᴇᴅ ᴍᴏᴅᴜʟᴇ𝘀:** {𝗺𝗼𝗱}
+**ᴘʟᴀᴛғᴏʀᴍ:** {𝘀𝗰}
+**ʀᴀᴍ:** {𝗿𝗮𝗺}
+**ᴘʜʏ𝘀ɪᴄᴀʟ ᴄᴏʀᴇ𝘀:** {𝗽_𝗰𝗼𝗿𝗲}
+**ᴛᴏᴛᴀʟ ᴄᴏʀᴇ𝘀:** {𝘁_𝗰𝗼𝗿𝗲}
+**ᴄᴘᴜ ғʀᴇ𝗼̨ᴜᴇɴᴄʏ:** {𝗰𝗽𝘂_𝗳𝗿𝗲𝗾}
 
-**ᴘʏᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** {pyver.split()[0]}
-**ᴘʏʀᴏɢʀᴀᴍ ᴠᴇʀsɪᴏɴ :** {pyrover}
-**Pʏ-TɢCᴀʟʟs ᴠᴇʀsɪᴏɴ :** {pytgver}
-**N-Tɢᴄᴀʟʟs ᴠᴇʀsɪᴏɴ :** {ngtgver}
-**ᴀᴠᴀɪʟᴀʙʟᴇ sᴛᴏʀᴀɢᴇ :** {total[:4]} ɢiʙ
-**sᴛᴏʀᴀɢᴇ ᴜsᴇᴅ:** {used[:4]} ɢiʙ
-**sᴛᴏʀᴀɢᴇ ʟᴇғᴛ:** {free[:4]} ɢiʙ
+**ᴘʏᴛʜᴏɴ ᴠᴇʀ𝘀ɪᴏɴ :** {𝗽𝘆𝘃𝗲𝗿.𝘀𝗽𝗹𝗶𝘁()[𝟬]}
+**ᴘʏʀᴏɢʀᴀᴍ ᴠᴇʀ𝘀ɪᴏɴ :** {𝗽𝘆𝗿𝗼𝘃𝗲𝗿}
+**𝗣ʏ-𝗧ɢ𝗖ᴀʟʟ𝘀 ᴠᴇʀ𝘀ɪᴏɴ :** {𝗽𝘆𝘁𝗴𝘃𝗲𝗿}
+**𝗡-𝗧ɢᴄᴀʟʟ𝘀 ᴠᴇʀ𝘀ɪᴏɴ :** {𝗻𝗴𝘁𝗴𝘃𝗲𝗿}
+**ᴀᴠᴀɪʟᴀʙʟᴇ 𝘀ᴛᴏʀᴀɢᴇ :** {𝘁𝗼𝘁𝗮𝗹[:𝟰]} ɢ𝗶ʙ
+**𝘀ᴛᴏʀᴀɢᴇ ᴜ𝘀ᴇᴅ:** {𝘂𝘀𝗲𝗱[:𝟰]} ɢ𝗶ʙ
+**𝘀ᴛᴏʀᴀɢᴇ ʟᴇғᴛ:** {𝗳𝗿𝗲𝗲[:𝟰]} ɢ𝗶ʙ
 
-**sᴇʀᴠᴇᴅ ᴄʜᴀᴛs:** {served_chats} 
-**sᴇʀᴠᴇᴅ ᴜsᴇʀs:** {served_users} 
-**ʙʟᴏᴄᴋᴇᴅ ᴜsᴇʀs:** {blocked} 
-**sᴜᴅᴏ ᴜsᴇʀs:** {sudoers} 
+**𝘀ᴇʀᴠᴇᴅ ᴄʜᴀᴛ𝘀:** {𝘀𝗲𝗿𝘃𝗲𝗱_𝗰𝗵𝗮𝘁𝘀} 
+**𝘀ᴇʀᴠᴇᴅ ᴜ𝘀ᴇʀ𝘀:** {𝘀𝗲𝗿𝘃𝗲𝗱_𝘂𝘀𝗲𝗿𝘀} 
+**ʙʟᴏᴄᴋᴇᴅ ᴜ𝘀ᴇʀ𝘀:** {𝗯𝗹𝗼𝗰𝗸𝗲𝗱} 
+**𝘀ᴜᴅᴏ ᴜ𝘀ᴇʀ𝘀:** {𝘀𝘂𝗱𝗼𝗲𝗿𝘀} 
 
-**ᴛᴏᴛᴀʟ ᴅʙ sᴛᴏʀᴀɢᴇ:** {storage} ᴍʙ
-**ᴛᴏᴛᴀʟ ᴅʙ ᴄᴏʟʟᴇᴄᴛɪᴏɴs:** {collections}
-**ᴛᴏᴛᴀʟ ᴅʙ ᴋᴇʏs:** {objects}
-**ᴛᴏᴛᴀʟ ʙᴏᴛ ǫᴜᴇʀɪᴇs:** `{total_queries} `
+**ᴛᴏᴛᴀʟ ᴅʙ 𝘀ᴛᴏʀᴀɢᴇ:** {𝘀𝘁𝗼𝗿𝗮𝗴𝗲} ᴍʙ
+**ᴛᴏᴛᴀʟ ᴅʙ ᴄᴏʟʟᴇᴄᴛɪᴏɴ𝘀:** {𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻𝘀}
+**ᴛᴏᴛᴀʟ ᴅʙ ᴋᴇʏ𝘀:** {𝗼𝗯𝗷𝗲𝗰𝘁𝘀}
+**ᴛᴏᴛᴀʟ ʙᴏᴛ 𝗼̨ᴜᴇʀɪᴇ𝘀:** `{𝘁𝗼𝘁𝗮𝗹_𝗾𝘂𝗲𝗿𝗶𝗲𝘀} `
     """
-    med = InputMediaPhoto(media=config.STATS_IMG_URL, caption=text)
-    try:
-        await CallbackQuery.edit_message_media(media=med, reply_markup=upl)
-    except MessageIdInvalid:
-        await CallbackQuery.message.reply_video(
-            video=config.STATSS_IMG_URL, caption=text, reply_markup=upl
+    𝗺𝗲𝗱 = 𝗜𝗻𝗽𝘂𝘁𝗠𝗲𝗱𝗶𝗮𝗣𝗵𝗼𝘁𝗼(𝗺𝗲𝗱𝗶𝗮=𝗰𝗼𝗻𝗳𝗶𝗴.𝗦𝗧𝗔𝗧𝗦_𝗜𝗠𝗚_𝗨𝗥𝗟, 𝗰𝗮𝗽𝘁𝗶𝗼𝗻=𝘁𝗲𝘅𝘁)
+    𝘁𝗿𝘆:
+        𝗮𝘄𝗮𝗶𝘁 𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆.𝗲𝗱𝗶𝘁_𝗺𝗲𝘀𝘀𝗮𝗴𝗲_𝗺𝗲𝗱𝗶𝗮(𝗺𝗲𝗱𝗶𝗮=𝗺𝗲𝗱, 𝗿𝗲𝗽𝗹𝘆_𝗺𝗮𝗿𝗸𝘂𝗽=𝘂𝗽𝗹)
+    𝗲𝘅𝗰𝗲𝗽𝘁 𝗠𝗲𝘀𝘀𝗮𝗴𝗲𝗜𝗱𝗜𝗻𝘃𝗮𝗹𝗶𝗱:
+        𝗮𝘄𝗮𝗶𝘁 𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆.𝗺𝗲𝘀𝘀𝗮𝗴𝗲.𝗿𝗲𝗽𝗹𝘆_𝗽𝗵𝗼𝘁𝗼(
+            𝗽𝗵𝗼𝘁𝗼=𝗰𝗼𝗻𝗳𝗶𝗴.𝗦𝗧𝗔𝗧𝗦_𝗜𝗠𝗚_𝗨𝗥𝗟, 𝗰𝗮𝗽𝘁𝗶𝗼𝗻=𝘁𝗲𝘅𝘁, 𝗿𝗲𝗽𝗹𝘆_𝗺𝗮𝗿𝗸𝘂𝗽=𝘂𝗽𝗹
         )
 
 
-@app.on_callback_query(
-    filters.regex(pattern=r"^(TOPMARKUPGET|GETSTATS|GlobalStats)$") & ~BANNED_USERS
+@𝗮𝗽𝗽.𝗼𝗻_𝗰𝗮𝗹𝗹𝗯𝗮𝗰𝗸_𝗾𝘂𝗲𝗿𝘆(
+    𝗳𝗶𝗹𝘁𝗲𝗿𝘀.𝗿𝗲𝗴𝗲𝘅(𝗽𝗮𝘁𝘁𝗲𝗿𝗻=𝗿"^(𝗧𝗢𝗣𝗠𝗔𝗥𝗞𝗨𝗣𝗚𝗘𝗧|𝗚𝗘𝗧𝗦𝗧𝗔𝗧𝗦|𝗚𝗹𝗼𝗯𝗮𝗹𝗦𝘁𝗮𝘁𝘀)$") & ~𝗕𝗔𝗡𝗡𝗘𝗗_𝗨𝗦𝗘𝗥𝗦
 )
-@languageCB
-async def back_buttons(client, CallbackQuery, _):
-    try:
-        await CallbackQuery.answer()
-    except:
-        pass
-    command = CallbackQuery.matches[0].group(1)
-    if command == "TOPMARKUPGET":
-        upl = top_ten_stats_markup(_)
-        med = InputMediaVideo(
-            video=config.GLOBAL_IMG_URL,
-            caption=_["gstats_9"],
+@𝗹𝗮𝗻𝗴𝘂𝗮𝗴𝗲𝗖𝗕
+𝗮𝘀𝘆𝗻𝗰 𝗱𝗲𝗳 𝗯𝗮𝗰𝗸_𝗯𝘂𝘁𝘁𝗼𝗻𝘀(𝗰𝗹𝗶𝗲𝗻𝘁, 𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆, _):
+    𝘁𝗿𝘆:
+        𝗮𝘄𝗮𝗶𝘁 𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆.𝗮𝗻𝘀𝘄𝗲𝗿()
+    𝗲𝘅𝗰𝗲𝗽𝘁:
+        𝗽𝗮𝘀𝘀
+    𝗰𝗼𝗺𝗺𝗮𝗻𝗱 = 𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆.𝗺𝗮𝘁𝗰𝗵𝗲𝘀[𝟬].𝗴𝗿𝗼𝘂𝗽(𝟭)
+    𝗶𝗳 𝗰𝗼𝗺𝗺𝗮𝗻𝗱 == "𝗧𝗢𝗣𝗠𝗔𝗥𝗞𝗨𝗣𝗚𝗘𝗧":
+        𝘂𝗽𝗹 = 𝘁𝗼𝗽_𝘁𝗲𝗻_𝘀𝘁𝗮𝘁𝘀_𝗺𝗮𝗿𝗸𝘂𝗽(_)
+        𝗺𝗲𝗱 = 𝗜𝗻𝗽𝘂𝘁𝗠𝗲𝗱𝗶𝗮𝗣𝗵𝗼𝘁𝗼(
+            𝗺𝗲𝗱𝗶𝗮=𝗰𝗼𝗻𝗳𝗶𝗴.𝗚𝗟𝗢𝗕𝗔𝗟_𝗜𝗠𝗚_𝗨𝗥𝗟,
+            𝗰𝗮𝗽𝘁𝗶𝗼𝗻=_["𝗴𝘀𝘁𝗮𝘁𝘀_𝟵"],
         )
-        try:
-            await CallbackQuery.edit_message_media(media=med, reply_markup=upl)
-        except MessageIdInvalid:
-            await CallbackQuery.message.reply_video(
-                video=config.GLOBAL_IMG_URL,
-                caption=_["gstats_9"],
-                reply_markup=upl,
+        𝘁𝗿𝘆:
+            𝗮𝘄𝗮𝗶𝘁 𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆.𝗲𝗱𝗶𝘁_𝗺𝗲𝘀𝘀𝗮𝗴𝗲_𝗺𝗲𝗱𝗶𝗮(𝗺𝗲𝗱𝗶𝗮=𝗺𝗲𝗱, 𝗿𝗲𝗽𝗹𝘆_𝗺𝗮𝗿𝗸𝘂𝗽=𝘂𝗽𝗹)
+        𝗲𝘅𝗰𝗲𝗽𝘁 𝗠𝗲𝘀𝘀𝗮𝗴𝗲𝗜𝗱𝗜𝗻𝘃𝗮𝗹𝗶𝗱:
+            𝗮𝘄𝗮𝗶𝘁 𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆.𝗺𝗲𝘀𝘀𝗮𝗴𝗲.𝗿𝗲𝗽𝗹𝘆_𝗽𝗵𝗼𝘁𝗼(
+                𝗽𝗵𝗼𝘁𝗼=𝗰𝗼𝗻𝗳𝗶𝗴.𝗚𝗟𝗢𝗕𝗔𝗟_𝗜𝗠𝗚_𝗨𝗥𝗟,
+                𝗰𝗮𝗽𝘁𝗶𝗼𝗻=_["𝗴𝘀𝘁𝗮𝘁𝘀_𝟵"],
+                𝗿𝗲𝗽𝗹𝘆_𝗺𝗮𝗿𝗸𝘂𝗽=𝘂𝗽𝗹,
             )
-    if command == "GlobalStats":
-        upl = get_stats_markup(
+    𝗶𝗳 𝗰𝗼𝗺𝗺𝗮𝗻𝗱 == "𝗚𝗹𝗼𝗯𝗮𝗹𝗦𝘁𝗮𝘁𝘀":
+        𝘂𝗽𝗹 = 𝗴𝗲𝘁_𝘀𝘁𝗮𝘁𝘀_𝗺𝗮𝗿𝗸𝘂𝗽(
             _,
-            True if CallbackQuery.from_user.id in SUDOERS else False,
+            𝗧𝗿𝘂𝗲 𝗶𝗳 𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆.𝗳𝗿𝗼𝗺_𝘂𝘀𝗲𝗿.𝗶𝗱 𝗶𝗻 𝗦𝗨𝗗𝗢𝗘𝗥𝗦 𝗲𝗹𝘀𝗲 𝗙𝗮𝗹𝘀𝗲,
         )
-        med = InputMediaVideo(
-            video=config.GLOBAL_IMG_URL,
-            caption=_["gstats_10"].format(app.mention),
+        𝗺𝗲𝗱 = 𝗜𝗻𝗽𝘂𝘁𝗠𝗲𝗱𝗶𝗮𝗣𝗵𝗼𝘁𝗼(
+            𝗺𝗲𝗱𝗶𝗮=𝗰𝗼𝗻𝗳𝗶𝗴.𝗚𝗟𝗢𝗕𝗔𝗟_𝗜𝗠𝗚_𝗨𝗥𝗟,
+            𝗰𝗮𝗽𝘁𝗶𝗼𝗻=_["𝗴𝘀𝘁𝗮𝘁𝘀_𝟭𝟬"].𝗳𝗼𝗿𝗺𝗮𝘁(𝗮𝗽𝗽.𝗺𝗲𝗻𝘁𝗶𝗼𝗻),
         )
-        try:
-            await CallbackQuery.edit_message_media(media=med, reply_markup=upl)
-        except MessageIdInvalid:
-            await CallbackQuery.message.reply_photo(
-                photo=config.GLOBAL_IMG_URL,
-                caption=_["gstats_10"].format(app.mention),
-                reply_markup=upl,
+        𝘁𝗿𝘆:
+            𝗮𝘄𝗮𝗶𝘁 𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆.𝗲𝗱𝗶𝘁_𝗺𝗲𝘀𝘀𝗮𝗴𝗲_𝗺𝗲𝗱𝗶𝗮(𝗺𝗲𝗱𝗶𝗮=𝗺𝗲𝗱, 𝗿𝗲𝗽𝗹𝘆_𝗺𝗮𝗿𝗸𝘂𝗽=𝘂𝗽𝗹)
+        𝗲𝘅𝗰𝗲𝗽𝘁 𝗠𝗲𝘀𝘀𝗮𝗴𝗲𝗜𝗱𝗜𝗻𝘃𝗮𝗹𝗶𝗱:
+            𝗮𝘄𝗮𝗶𝘁 𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆.𝗺𝗲𝘀𝘀𝗮𝗴𝗲.𝗿𝗲𝗽𝗹𝘆_𝗽𝗵𝗼𝘁𝗼(
+                𝗽𝗵𝗼𝘁𝗼=𝗰𝗼𝗻𝗳𝗶𝗴.𝗚𝗟𝗢𝗕𝗔𝗟_𝗜𝗠𝗚_𝗨𝗥𝗟,
+                𝗰𝗮𝗽𝘁𝗶𝗼𝗻=_["𝗴𝘀𝘁𝗮𝘁𝘀_𝟭𝟬"].𝗳𝗼𝗿𝗺𝗮𝘁(𝗮𝗽𝗽.𝗺𝗲𝗻𝘁𝗶𝗼𝗻),
+                𝗿𝗲𝗽𝗹𝘆_𝗺𝗮𝗿𝗸𝘂𝗽=𝘂𝗽𝗹,
             )
-    if command == "GETSTATS":
-        upl = stats_buttons(
+    𝗶𝗳 𝗰𝗼𝗺𝗺𝗮𝗻𝗱 == "𝗚𝗘𝗧𝗦𝗧𝗔𝗧𝗦":
+        𝘂𝗽𝗹 = 𝘀𝘁𝗮𝘁𝘀_𝗯𝘂𝘁𝘁𝗼𝗻𝘀(
             _,
-            True if CallbackQuery.from_user.id in SUDOERS else False,
+            𝗧𝗿𝘂𝗲 𝗶𝗳 𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆.𝗳𝗿𝗼𝗺_𝘂𝘀𝗲𝗿.𝗶𝗱 𝗶𝗻 𝗦𝗨𝗗𝗢𝗘𝗥𝗦 𝗲𝗹𝘀𝗲 𝗙𝗮𝗹𝘀𝗲,
         )
-        med = InputMediaVideo(
-            video=config.STATSS_IMG_URL,
-            caption=_["gstats_11"].format(app.mention),
+        𝗺𝗲𝗱 = 𝗜𝗻𝗽𝘂𝘁𝗠𝗲𝗱𝗶𝗮𝗣𝗵𝗼𝘁𝗼(
+            𝗺𝗲𝗱𝗶𝗮=𝗰𝗼𝗻𝗳𝗶𝗴.𝗦𝗧𝗔𝗧𝗦_𝗜𝗠𝗚_𝗨𝗥𝗟,
+            𝗰𝗮𝗽𝘁𝗶𝗼𝗻=_["𝗴𝘀𝘁𝗮𝘁𝘀_𝟭𝟭"].𝗳𝗼𝗿𝗺𝗮𝘁(𝗮𝗽𝗽.𝗺𝗲𝗻𝘁𝗶𝗼𝗻),
         )
-        try:
-            await CallbackQuery.edit_message_media(media=med, reply_markup=upl)
-        except MessageIdInvalid:
-            await CallbackQuery.message.reply_video(
-                video=config.STATSS_IMG_URL,
-                caption=_["gstats_11"].format(app.mention),
-                reply_markup=upl,
+        𝘁𝗿𝘆:
+            𝗮𝘄𝗮𝗶𝘁 𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆.𝗲𝗱𝗶𝘁_𝗺𝗲𝘀𝘀𝗮𝗴𝗲_𝗺𝗲𝗱𝗶𝗮(𝗺𝗲𝗱𝗶𝗮=𝗺𝗲𝗱, 𝗿𝗲𝗽𝗹𝘆_𝗺𝗮𝗿𝗸𝘂𝗽=𝘂𝗽𝗹)
+        𝗲𝘅𝗰𝗲𝗽𝘁 𝗠𝗲𝘀𝘀𝗮𝗴𝗲𝗜𝗱𝗜𝗻𝘃𝗮𝗹𝗶𝗱:
+            𝗮𝘄𝗮𝗶𝘁 𝗖𝗮𝗹𝗹𝗯𝗮𝗰𝗸𝗤𝘂𝗲𝗿𝘆.𝗺𝗲𝘀𝘀𝗮𝗴𝗲.𝗿𝗲𝗽𝗹𝘆_𝗽𝗵𝗼𝘁𝗼(
+                𝗽𝗵𝗼𝘁𝗼=𝗰𝗼𝗻𝗳𝗶𝗴.𝗦𝗧𝗔𝗧𝗦_𝗜𝗠𝗚_𝗨𝗥𝗟,
+                𝗰𝗮𝗽𝘁𝗶𝗼𝗻=_["𝗴𝘀𝘁𝗮𝘁𝘀_𝟭𝟭"].𝗳𝗼𝗿𝗺𝗮𝘁(𝗮𝗽𝗽.𝗺𝗲𝗻𝘁𝗶𝗼𝗻),
+                𝗿𝗲𝗽𝗹𝘆_𝗺𝗮𝗿𝗸𝘂𝗽=𝘂𝗽𝗹,
 )
