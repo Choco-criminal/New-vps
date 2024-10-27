@@ -93,6 +93,9 @@ HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
 
 
+TOKEN_ALLOW = os.getenv("TOKEN_ALLOW", "False")
+
+
 # For customized or modified Repository
 UPSTREAM_REPO = getenv(
     "UPSTREAM_REPO",
