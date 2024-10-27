@@ -11,13 +11,8 @@ import asyncio
 import time
 
 from pyrogram import filters
-from pyrogram.enums import ParseMode
-from pyrogram.types import (
-    CallbackQuery,
-    InlineKeyboardButton,
-    InlineKeyboardMarkup,
-    Message,
-)
+from pyrogram.enums import ChatType, ParseMode
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from youtubesearchpython.__future__ import VideosSearch
 
 import config
@@ -30,6 +25,7 @@ from VIPMUSIC.plugins.sudo.sudoers import sudoers_list
 from VIPMUSIC.utils.database import (
     add_served_chat,
     add_served_user,
+    blacklisted_chats,
     get_assistant,
     get_lang,
     get_userss,
@@ -40,7 +36,7 @@ from VIPMUSIC.utils.database import (
 from VIPMUSIC.utils.decorators.language import LanguageStart
 from VIPMUSIC.utils.formatters import get_readable_time
 from VIPMUSIC.utils.functions import MARKDOWN, WELCOMEHELP
-from VIPMUSIC.utils.inline import alive_panel, music_start_panel, start_pannel
+from VIPMUSIC.utils.inline import alive_panel, private_panel, start_pannel
 
 from .help import paginate_modules
 
@@ -55,9 +51,10 @@ async def ban_new(client, message):
     chat_name = message.chat.title if message.chat.title else ""
     if await is_banned_user(user_id):
         try:
-            alert_message = f"😳"
+            alert_message = f"🙀"
             BAN = await message.chat.ban_member(user_id)
             if BAN:
+                await message.react("😶‍🌫️")
                 await message.reply_text(alert_message)
         except:
             pass
@@ -68,7 +65,7 @@ async def ban_new(client, message):
 async def start_comm(client, message: Message, _):
     chat_id = message.chat.id
     await add_served_user(message.from_user.id)
-    await message.react("💘")
+    await message.react("🗿")
     if len(message.text.split()) > 1:
         name = message.text.split(None, 1)[1]
         if name[0:4] == "help":
@@ -207,7 +204,7 @@ async def start_comm(client, message: Message, _):
                 [
                     [
                         InlineKeyboardButton(text=" ᴡᴀᴛᴄʜ ", url=f"{link}"),
-                        InlineKeyboardButton(text=" ᴄʟᴏsᴇ", callback_data="close"),
+                        InlineKeyboardButton(text=" ᴄʟᴏsᴇ ", callback_data="close"),
                     ],
                 ]
             )
@@ -228,53 +225,20 @@ async def start_comm(client, message: Message, _):
                     f"{message.from_user.mention} ʜᴀs ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ<code> ᴠɪᴅᴇᴏ ɪɴғᴏʀᴍᴀᴛɪᴏɴ </code>\n\n**ᴜsᴇʀ ɪᴅ:** {sender_id}\n**ᴜsᴇʀ ɴᴀᴍᴇ** {sender_name}",
                 )
     else:
-
-        try:
-            out = music_start_panel(_)
-            vip = await message.reply_text(f"**𝐴𝑟𝑎~ 𝐴𝑟𝑎~ ◉‿◉.**")
-            await vip.edit_text(f"**𝐴𝑟𝑎~ 𝐴𝑟𝑎~ ◉‿◉..**")
-            await vip.edit_text(f"**𝐴𝑟𝑎~ 𝐴𝑟𝑎~ ◉‿◉...**")
-            await vip.edit_text(f"**𝐴𝑟𝑎~ 𝐴𝑟𝑎~ ◉‿◉....**")
-            await vip.edit_text(f"**𝐴𝑟𝑎~ 𝐴𝑟𝑎~ ◉‿◉.....**")
-            await vip.edit_text(f"**𝐴𝑟𝑎~ 𝐴𝑟𝑎~ ◉‿◉......**")
-
-            await vip.delete()
-            vips = await message.reply_text("**𝑆**")
-            await asyncio.sleep(0.1)
-            await vips.edit_text("**❥𝑆𝑡**")
-            # await asyncio.sleep(0.1)
-            await vips.edit_text("**❥𝑆𝑡𝑎**")
-            #  await asyncio.sleep(0.1)
-            await vips.edit_text("**❥𝑆𝑡𝑎𝑟**")
-            # await asyncio.sleep(0.1)
-            await vips.edit_text("**❥𝑆𝑡𝑎𝑟𝑡**")
-            # await asyncio.sleep(0.1)
-            await vips.edit_text("**❥𝑆𝑡𝑎𝑟𝑡𝑖**")
-            # await asyncio.sleep(0.1)
-            await vips.edit_text("**❥𝑆𝑡𝑎𝑟𝑡𝑖𝑛**")
-            # await asyncio.sleep(0.1)
-            await vips.edit_text("**❥𝑆𝑡𝑎𝑟𝑡𝑖𝑛𝑔**")
-            # await asyncio.sleep(0.1)
-            await vips.edit_text("**❥𝑆𝑡𝑎𝑟𝑡𝑖𝑛𝑔.◌**")
-            await asyncio.sleep(0.1)
-            await vips.edit_text("**❥𝑆𝑡𝑎𝑟𝑡𝑖𝑛𝑔..◌**")
-            await asyncio.sleep(0.1)
-            await vips.edit_text("**❥𝑆𝑡𝑎𝑟𝑡𝑖𝑛𝑔...◌**")
-            await asyncio.sleep(0.1)
-            await vips.edit_text("**❥𝑆𝑡𝑎𝑟𝑡𝑖𝑛𝑔....◌**")
-            
-        await vips.delete()
-        if config.START_IMG_URL:
-                return await message.reply_video(
-                    video="START_IMG_UR*L,
-                    caption=_["start_2"].format(message.from_user.mention, app.mention),
-                    reply_markup=InlineKeyboardMarkup(out),
+        out = private_panel(_)
+        await message.reply_video(
+            video=config.START_IMG_URL,
+            caption=_["start_2"].format(message.from_user.mention, app.mention),
+            reply_markup=InlineKeyboardMarkup(out),
         )
         if await is_on_off(config.LOG):
-                return await app.send_message(
-                    chat_id=config.LOGGER_ID,
-                    text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>ᴛʀᴀᴄᴋ ɪɴғᴏʀᴍᴀᴛɪᴏɴ</b>.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
-                )
+            sender_id = message.from_user.id
+            sender_name = message.from_user.first_name
+            return await app.send_message(
+                config.LOG_GROUP_ID,
+                f"{message.from_user.mention} ʜᴀs sᴛᴀʀᴛᴇᴅ ʙᴏᴛ. \n\n**ᴜsᴇʀ ɪᴅ :** {sender_id}\n**ᴜsᴇʀ ɴᴀᴍᴇ:** {sender_name}",
+            )
+
 
 @app.on_message(filters.command(["start"]) & filters.group & ~BANNED_USERS)
 @LanguageStart
@@ -296,49 +260,72 @@ async def testbot(client, message: Message, _):
     return await add_served_chat(message.chat.id)
 
 
-@app.on_message(filters.new_chat_members, group=3)
-async def testbot(client, message: Message, _):
-    out = alive_panel(_)
-    uptime = int(time.time() - _boot_)
+@app.on_message(filters.new_chat_members, group=-1)
+async def welcome(client, message: Message):
     chat_id = message.chat.id
-    if config.START_IMG_URL:
-        await message.reply_video(
-            video=config.START_IMG_URL,
-            caption=_["start_7"].format(app.mention, get_readable_time(uptime)),
-            reply_markup=InlineKeyboardMarkup(out),
-        )
+    if config.PRIVATE_BOT_MODE == str(True):
+        if not await is_served_private_chat(message.chat.id):
+            await message.reply_text(
+                "**ᴛʜɪs ʙᴏᴛ's ᴘʀɪᴠᴀᴛᴇ ᴍᴏᴅᴇ ʜᴀs ʙᴇᴇɴ ᴇɴᴀʙʟᴇᴅ ᴏɴʟʏ ᴍʏ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ɪғ ᴡᴀɴᴛ ᴛᴏ ᴜsᴇ ᴛʜɪs ɪɴ ʏᴏᴜʀ ᴄʜᴀᴛ sᴏ sᴀʏ ᴛᴏ ᴍʏ ᴏᴡɴᴇʀ ᴛᴏ ᴀᴜᴛʜᴏʀɪᴢᴇ ʏᴏᴜʀ ᴄʜᴀᴛ."
+            )
+            return await app.leave_chat(message.chat.id)
     else:
-        await message.reply_text(
-            text=_["start_7"].format(app.mention, get_readable_time(uptime)),
-            reply_markup=InlineKeyboardMarkup(out),
-        )
-    return await add_served_chat(message.chat.id)
+        await add_served_chat(chat_id)
+    for member in message.new_chat_members:
+        try:
+            language = await get_lang(message.chat.id)
+            _ = get_string(language)
+            if member.id == app.id:
+                chat_type = message.chat.type
+                if chat_type != ChatType.SUPERGROUP:
+                    await message.reply_text(_["start_5"])
+                    return await app.leave_chat(message.chat.id)
+                if chat_id in await blacklisted_chats():
+                    await message.reply_text(
+                        _["start_6"].format(
+                            f"https://t.me/{app.username}?start=sudolist"
+                        )
+                    )
+                    return await app.leave_chat(chat_id)
+                userbot = await get_assistant(message.chat.id)
+                out = start_pannel(_)
+                await message.reply_text(
+                    _["start_2"].format(
+                        app.mention,
+                        userbot.username,
+                        userbot.id,
+                    ),
+                    reply_markup=InlineKeyboardMarkup(out),
+                )
+            if member.id in config.OWNER_ID:
+                return await message.reply_text(
+                    _["start_3"].format(app.mention, member.mention)
+                )
+            if member.id in SUDOERS:
+                return await message.reply_text(
+                    _["start_4"].format(app.mention, member.mention)
+                )
+            return
+        except:
 
-@app.on_callback_query(filters.regex("go_to_start"))
-@LanguageStart
-async def go_to_home(client, callback_query: CallbackQuery, _):
-    out = music_start_panel(_)
-    await callback_query.message.edit_text(
-        text=_["start_2"].format(callback_query.message.from_user.mention, app.mention),
-        reply_markup=InlineKeyboardMarkup(out),
-    )
+            return
 
 
 __MODULE__ = "Boᴛ"
 __HELP__ = f"""
 <b>✦ c sᴛᴀɴᴅs ғᴏʀ ᴄʜᴀɴɴᴇʟ ᴘʟᴀʏ.</b>
 
-<b>★ /stats</b> - Gᴇᴛ Tᴏᴘ 𝟷𝟶 Tʀᴀᴄᴋs Gʟᴏʙᴀʟ Sᴛᴀᴛs, Tᴏᴘ 𝟷𝟶 Usᴇʀs ᴏғ ʙᴏᴛ, Tᴏᴘ 𝟷𝟶 Cʜᴀᴛs ᴏɴ ʙᴏᴛ, Tᴏᴘ 𝟷𝟶 Pʟᴀʏᴇᴅ ɪɴ ᴀ ᴄʜᴀᴛ ᴇᴛᴄ ᴇᴛᴄ.
+<b>✦ /stats</b> - Gᴇᴛ Tᴏᴘ 𝟷𝟶 Tʀᴀᴄᴋs Gʟᴏʙᴀʟ Sᴛᴀᴛs, Tᴏᴘ 𝟷𝟶 Usᴇʀs ᴏғ ʙᴏᴛ, Tᴏᴘ 𝟷𝟶 Cʜᴀᴛs ᴏɴ ʙᴏᴛ, Tᴏᴘ 𝟷𝟶 Pʟᴀʏᴇᴅ ɪɴ ᴀ ᴄʜᴀᴛ ᴇᴛᴄ ᴇᴛᴄ.
 
-<b>★ /sudolist</b> - Cʜᴇᴄᴋ Sᴜᴅᴏ Usᴇʀs ᴏғ Bᴏᴛ
+<b>✦ /sudolist</b> - Cʜᴇᴄᴋ Sᴜᴅᴏ Usᴇʀs ᴏғ Bᴏᴛ
 
-<b>★ /lyrics [Mᴜsɪᴄ Nᴀᴍᴇ]</b> - Sᴇᴀʀᴄʜᴇs Lʏʀɪᴄs ғᴏʀ ᴛʜᴇ ᴘᴀʀᴛɪᴄᴜʟᴀʀ Mᴜsɪᴄ ᴏɴ ᴡᴇʙ.
+<b>✦ /lyrics [Mᴜsɪᴄ Nᴀᴍᴇ]</b> - Sᴇᴀʀᴄʜᴇs Lʏʀɪᴄs ғᴏʀ ᴛʜᴇ ᴘᴀʀᴛɪᴄᴜʟᴀʀ Mᴜsɪᴄ ᴏɴ ᴡᴇʙ.
 
-<b>★ /song [Tʀᴀᴄᴋ Nᴀᴍᴇ] ᴏʀ [YT Lɪɴᴋ]</b> - Dᴏᴡɴʟᴏᴀᴅ ᴀɴʏ ᴛʀᴀᴄᴋ ғʀᴏᴍ ʏᴏᴜᴛᴜʙᴇ ɪɴ ᴍᴘ𝟹 ᴏʀ ᴍᴘ𝟺 ғᴏʀᴍᴀᴛs.
+<b>✦ /song [Tʀᴀᴄᴋ Nᴀᴍᴇ] ᴏʀ [YT Lɪɴᴋ]</b> - Dᴏᴡɴʟᴏᴀᴅ ᴀɴʏ ᴛʀᴀᴄᴋ ғʀᴏᴍ ʏᴏᴜᴛᴜʙᴇ ɪɴ ᴍᴘ𝟹 ᴏʀ ᴍᴘ𝟺 ғᴏʀᴍᴀᴛs.
 
-<b>★ /player</b> - Gᴇᴛ ᴀ ɪɴᴛᴇʀᴀᴄᴛɪᴠᴇ Pʟᴀʏɪɴɢ Pᴀɴᴇʟ.
+<b>✦ /player</b> - Gᴇᴛ ᴀ ɪɴᴛᴇʀᴀᴄᴛɪᴠᴇ Pʟᴀʏɪɴɢ Pᴀɴᴇʟ.
 
-<b>★ /queue ᴏʀ /cqueue</b> - Cʜᴇᴄᴋ Qᴜᴇᴜᴇ Lɪsᴛ ᴏғ Mᴜsɪᴄ.
+<b>✦ /queue ᴏʀ /cqueue</b> - Cʜᴇᴄᴋ Qᴜᴇᴜᴇ Lɪsᴛ ᴏғ Mᴜsɪᴄ.
 
     <u><b>⚡️Pʀɪᴠᴀᴛᴇ Bᴏᴛ:</b></u>
       
