@@ -266,7 +266,7 @@ async def start_comm(client, message: Message, _):
         await vips.delete()
         if config.START_IMG_URL:
                 return await message.reply_video(
-                    video=START_IMG_URL,
+                    video="START_IMG_UR*L,
                     caption=_["start_2"].format(message.from_user.mention, app.mention),
                     reply_markup=InlineKeyboardMarkup(out),
         )
