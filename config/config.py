@@ -93,7 +93,7 @@ HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
 
 
-TOKEN_ALLOW = os.getenv("TOKEN_ALLOW", "False")
+TOKEN_ALLOW = os.getenv("TOKEN_ALLOW", "true")
 
 
 # For customized or modified Repository
